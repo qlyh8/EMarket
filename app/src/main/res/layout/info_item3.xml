@@ -62,7 +62,6 @@
                 android:clickable="true"
                 />
             <TextView
-                android:id="@+id/tt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="소비자입니다"

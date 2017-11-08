@@ -6,7 +6,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.tistory.qlyh8.emarket.R;
 
@@ -17,6 +19,11 @@ public class InfoAdapter extends PagerAdapter {
 
     private Context context;
     //private List<Integer> res;
+
+    ImageView prosumer, consumer;
+    Button typeCheck;
+    int type = 0;   // 프로슈머(1)/소비자(2) 구분
+
 /*
     public InfoAdapter(Context context, List<Integer> res) {
         this.context = context;
@@ -61,8 +68,52 @@ public class InfoAdapter extends PagerAdapter {
         }
 
         View view = inflater.inflate(resId, container, false);
+
+        if(position == 2) {
+            prosumer = view.findViewById(R.id.img_prosumer);
+            consumer = view.findViewById(R.id.img_consumer);
+            typeCheck = view.findViewById(R.id.type_check_button);
+
+            click();
+        }
+
         container.addView(view, 0);
         return view;
+    }
+
+    private void click(){
+        prosumer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                prosumer.setImageResource(R.drawable.prosumer2);
+                consumer.setImageResource(R.drawable.consumer1);
+                type = 1;
+            }
+        });
+
+        consumer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                consumer.setImageResource(R.drawable.consumer2);
+                prosumer.setImageResource(R.drawable.prosumer1);
+                type = 2;
+            }
+        });
+
+        typeCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(type == 1){
+                    Toast.makeText(context, "나는 프로슈머!", Toast.LENGTH_SHORT).show();
+                }
+                else if(type == 2){
+                    Toast.makeText(context, "나는 소비자!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(context, "선택해주세요!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
