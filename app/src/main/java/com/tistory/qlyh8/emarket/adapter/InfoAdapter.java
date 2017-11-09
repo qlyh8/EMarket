@@ -1,6 +1,8 @@
 package com.tistory.qlyh8.emarket.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -10,7 +12,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tistory.qlyh8.emarket.InfoActivity;
+import com.tistory.qlyh8.emarket.ListActivity;
+import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
+import com.tistory.qlyh8.emarket.firebase.GetAuth;
+import com.tistory.qlyh8.emarket.firebase.GetDB;
+import com.tistory.qlyh8.emarket.main.YearViewActivity;
 
 import java.util.List;
 
@@ -23,6 +31,7 @@ public class InfoAdapter extends PagerAdapter {
     ImageView prosumer, consumer;
     Button typeCheck;
     int type = 0;   // 프로슈머(1)/소비자(2) 구분
+    int year = 2017;    //등록 날짜
 
 /*
     public InfoAdapter(Context context, List<Integer> res) {
@@ -65,11 +74,14 @@ public class InfoAdapter extends PagerAdapter {
             case 2:
                 resId = R.layout.info_item3;
                 break;
+            case 3:
+                resId = R.layout.info_item4;
+                break;
         }
 
         View view = inflater.inflate(resId, container, false);
 
-        if(position == 2) {
+        if(position == 3) {
             prosumer = view.findViewById(R.id.img_prosumer);
             consumer = view.findViewById(R.id.img_consumer);
             typeCheck = view.findViewById(R.id.type_check_button);
@@ -104,10 +116,14 @@ public class InfoAdapter extends PagerAdapter {
             @Override
             public void onClick(View view) {
                 if(type == 1){
-                    Toast.makeText(context, "나는 프로슈머!", Toast.LENGTH_SHORT).show();
+                    GetDB.mUserRef.child(GetAuth.getGoogleUserId()).child("type").setValue("prosumer");
+                    Toast.makeText(context, "환영합니다 "+ GetAuth.getGoogleUserName() +" 프로슈머님!", Toast.LENGTH_SHORT).show();
+                    goMain();
                 }
-                else if(type == 2){
-                    Toast.makeText(context, "나는 소비자!", Toast.LENGTH_SHORT).show();
+                    else if(type == 2){
+                    GetDB.mUserRef.child(GetAuth.getGoogleUserId()).child("type").setValue("consumer");
+                    Toast.makeText(context, "환영합니다 "+ GetAuth.getGoogleUserName() +" 소비자님!", Toast.LENGTH_SHORT).show();
+                    goMain();
                 }
                 else{
                     Toast.makeText(context, "선택해주세요!", Toast.LENGTH_SHORT).show();
@@ -116,10 +132,16 @@ public class InfoAdapter extends PagerAdapter {
         });
     }
 
+    public void goMain(){
+        context.startActivity(new Intent(context, YearViewActivity.class));
+        //context.startActivity(new Intent(context, ListActivity.class));
+        ((Activity)context).finish();
+    }
+
     @Override
     public int getCount() {
         //return res.size();
-        return 3;
+        return 4;
     }
 
     @Override

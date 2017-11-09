@@ -5,35 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D28083"
+    android:background="#FA5846"
     android:orientation="vertical"
     tools:context="com.tistory.qlyh8.emarket.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MARKET"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내가 직접 거래하는 전기시장"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/sun"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="50dp"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="E 마켓"
-        android:textColor="#FFFFFF"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="전기를 거래하다"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        />
-
     <Button
         android:id="@+id/sign_check_button"
         android:layout_width="200dp"
@@ -42,7 +51,7 @@
         android:text="Google 로그인"
         android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="30dp"
         android:onClick="googleSignIn"
         />
 </LinearLayout>

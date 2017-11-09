@@ -15,7 +15,7 @@ public class InfoActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private List<Integer> res;
+    //private List<Integer> res;
     private InfoAdapter pagerAdapter;
 
     @Override
@@ -27,14 +27,14 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     private void init(){
-        res = new ArrayList<>();
+        //res = new ArrayList<>();
 
         viewPager = (ViewPager)findViewById(R.id.info_view_pager);
         tabLayout = (TabLayout)findViewById(R.id.info_tab_layout);
 
-        res.add(R.drawable.info1);
-        res.add(R.drawable.info2);
-        res.add(R.drawable.info1);
+        //res.add(R.drawable.info1);
+        //res.add(R.drawable.info2);
+        //res.add(R.drawable.info1);
 
         //pagerAdapter = new InfoAdapter(this,res);
         pagerAdapter = new InfoAdapter(this);

@@ -4,13 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@drawable/gradient"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/info_image"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/info1"
+        android:text="반가워요!"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="50dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="에너지 프로슈머와 소비자간의"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="직접거래 어플리케이션"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-MARKET"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 입니다"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="프로슈머 - 컨슈머에 대해"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="알고계신가요?"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        />
 </LinearLayout>

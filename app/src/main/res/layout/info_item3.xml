@@ -3,84 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ED7D70"
+    android:gravity="center"
+    android:background="@drawable/gradient"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="당신은 누구인가요?"
-        android:textColor="#FFFFFF"
+        android:text="전력거래란?"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_marginTop="120dp"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="50dp"
-        android:weightSum="1"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.5"
-            >
-            <ImageView
-                android:id="@+id/img_prosumer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/prosumer1"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                android:clickable="true"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="프로슈머입니다"
-                android:textColor="#FFFFFF"
-                android:textAlignment="center"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.5"
-            >
-            <ImageView
-                android:id="@+id/img_consumer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/consumer1"
-                android:paddingBottom="20dp"
-                android:clickable="true"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="소비자입니다"
-                android:textColor="#FFFFFF"
-                android:textAlignment="center"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/type_check_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="#2E3339"
-        android:text="확인"
+        android:textSize="25sp"
         android:textColor="#FFFFFF"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:clickable="true"
         />
 
 </LinearLayout>
