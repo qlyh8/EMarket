@@ -3,8 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#FA5846"
+    android:background="#2E3339"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimaryDark">
+        <ImageView
+            android:id="@+id/year_view_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_prev_white"
+            android:layout_margin="10dp"
+            android:onClick="goHome"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="E-Market"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="105dp"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

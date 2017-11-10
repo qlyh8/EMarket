@@ -99,6 +99,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     public void googleSignIn(View v){
             Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
             startActivityForResult(signInIntent, RC_SIGN_IN);
+            Toast.makeText(getApplicationContext(), "잠시만 기다려주세요", Toast.LENGTH_LONG).show();
     }
 
 

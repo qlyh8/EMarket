@@ -1,5 +1,6 @@
-package com.tistory.qlyh8.emarket.main;
+package com.tistory.qlyh8.emarket.status;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tistory.qlyh8.emarket.InfoActivity;
+import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.adapter.TabAdapter;
 
@@ -25,7 +28,7 @@ public class YearViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_year_view);
+        setContentView(R.layout.status_year_view);
 
         //Year Data
         dataYear = 2017;
@@ -102,5 +105,11 @@ public class YearViewActivity extends AppCompatActivity {
         yearTextSet();
         pagerAdapter = new TabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), dataYear);
         viewPager.setAdapter(pagerAdapter);
+    }
+
+    public void goHome(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

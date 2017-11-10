@@ -1,5 +1,7 @@
-package com.tistory.qlyh8.emarket.main;
+package com.tistory.qlyh8.emarket.status;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,12 +14,13 @@ import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
 
-public class Status1Activity extends Fragment {
+public class EnrollStatusActivity extends Fragment {
 
     private int year;
     private int currentYear = 2017;
@@ -31,9 +34,18 @@ public class Status1Activity extends Fragment {
 
         year = getArguments().getInt("year");
 
-        view = inflater.inflate(R.layout.activity_status1, container, false);
+        view = inflater.inflate(R.layout.status_enroll, container, false);
         enrollYet = view.findViewById(R.id.enroll_yet_text);
+
         enrollBtn = view.findViewById(R.id.enroll_button);
+        enrollBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v = view;
+                startActivity(new Intent(v.getContext(), EnrollFormActivity.class));
+                //((Activity)v.getContext()).finish();
+            }
+        });
 
         isEnroll();
 

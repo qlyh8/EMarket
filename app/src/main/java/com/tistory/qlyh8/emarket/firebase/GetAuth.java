@@ -17,6 +17,10 @@ public class GetAuth {
         return result;
     }
 
+    /*public static String getUserId() {
+        return mAuth.getCurrentUser().getUid();
+    }*/
+
     public static String getGoogleUserName(){
         String result;
         try {
