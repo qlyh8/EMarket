@@ -7,16 +7,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
+import com.tistory.qlyh8.emarket.firebase.GetType;
+import com.tistory.qlyh8.emarket.model.Enroll;
 import com.tistory.qlyh8.emarket.status.YearViewActivity;
 import com.tistory.qlyh8.emarket.model.Sample;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Iterator;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     private Button goYearBtn;
 
@@ -27,10 +38,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         init();
+        mapInit();
     }
 
     private void init() {
+
+        GetType.isType();
+
         goYearBtn = (Button)findViewById(R.id.main_year);
         goYearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void mapInit() {
+        SupportMapFragment mapFragment  = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
     //객체 sample를 그대로 넣어주면 파이어베이스에 sample의 멤버 변수들이 등록
     private void insertDataSample(String data1, String data2, int data3){
         Sample sample = new Sample(data1, data2, data3);
@@ -83,6 +104,31 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        setUserMarker(googleMap);
+    }
+
+    private void setUserMarker(final GoogleMap googleMap) {
+        //GetDB.mEnrollRef.child("prosumer").addValueEventListener(new ValueEventListener() {
+        GetDB.mEnrollRef.child("prosumer").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                        Enroll enroll = childSnapshot.getValue(Enroll.class);
+                        googleMap.addMarker(new MarkerOptions().position(new LatLng(enroll.getLatitude(), enroll.getLongitude())));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                throw databaseError.toException();
             }
         });
     }

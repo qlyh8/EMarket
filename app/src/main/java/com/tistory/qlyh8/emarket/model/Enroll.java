@@ -17,8 +17,6 @@ public class Enroll {
                     ㄴ phone : "01012345678"
                     ㄴ address : "주소"
                     ㄴ power : "100"
-                    ㄴ agree1 : ("y" or"n")
-                    ㄴ agree2 : ("y" or"n")
      */
     public String year;
     public String ok;
@@ -27,14 +25,15 @@ public class Enroll {
     public String phone;
     public String address;
     public String power;
-    public String agree1;
-    public String agree2;
+    public double latitude;
+    public double longitude;
+
 
     //빈 생성자가 없으면 에러발생
     public Enroll(){
     }
 
-    public Enroll(String year, String ok, String name, String uniqueNumber, String phone, String address, String power, String agree1, String agree2) {
+    public Enroll(String year, String ok, String name, String uniqueNumber, String phone, String address, String power, double latitude, double longitude) {
         this.year = year;
         this.ok = ok;
         this.name = name;
@@ -42,8 +41,8 @@ public class Enroll {
         this.phone = phone;
         this.address = address;
         this.power = power;
-        this.agree1 = agree1;
-        this.agree2 = agree2;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getYear() {
@@ -102,19 +101,20 @@ public class Enroll {
         this.power = power;
     }
 
-    public String getAgree1() {
-        return agree1;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setAgree1(String agree1) {
-        this.agree1 = agree1;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public String getAgree2() {
-        return agree2;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setAgree2(String agree2) {
-        this.agree2 = agree2;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
+
 }

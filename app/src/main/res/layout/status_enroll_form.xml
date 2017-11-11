@@ -29,8 +29,8 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
         android:background="#EAEAEA"
         >
         <TextView
@@ -58,7 +58,7 @@
                 />
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text=" 등록안내"
                 android:textSize="18sp"
                 android:textColor="#000000"
@@ -69,121 +69,154 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        >
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingLeft="50dp"
+            android:gravity="center"
             android:scrollbars="vertical"
             >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="성명"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:paddingTop="20dp"
-                />
-            <EditText
-                android:id="@+id/enroll_name"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="홍길동"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="고객번호"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:paddingTop="20dp"
-                />
-            <EditText
-                android:id="@+id/enroll_unique_number"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="12345678"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="핸드폰번호"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:paddingTop="20dp"
-                />
-            <EditText
-                android:id="@+id/enroll_phone"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="01012345678"
-                />
-            <TextView
-                android:id="@+id/enroll_address_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="주소"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:paddingTop="20dp"
-                />
-            <EditText
-                android:id="@+id/enroll_address1"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="OO시 OO구 OO동"
-                />
-            <EditText
-                android:id="@+id/enroll_address2"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:hint="상세주소"
-                />
-            <TextView
-                android:id="@+id/enroll_power_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="발전량"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:paddingTop="20dp"
-                />
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/enroll_power"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:hint="100"
-                    />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="kW"
+                    android:text="성명"
                     android:textSize="15sp"
                     android:textColor="#000000"
+                    android:paddingTop="20dp"
+                    />
+                <EditText
+                    android:id="@+id/enroll_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="홍길동"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="고객번호"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:paddingTop="20dp"
+                    />
+                <EditText
+                    android:id="@+id/enroll_unique_number"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="12345678"
+                    />
+            </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="핸드폰번호"
+                   android:textSize="15sp"
+                   android:textColor="#000000"
+                   android:paddingTop="20dp"
+                   />
+               <EditText
+                   android:id="@+id/enroll_phone"
+                   android:layout_width="250dp"
+                   android:layout_height="wrap_content"
+                   android:hint="01012345678"
+                   />
+           </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/enroll_address_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주소"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:paddingTop="20dp"
+                    />
+
+                <EditText
+                    android:id="@+id/enroll_address"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="OO시 OO구 OO동"
+                    />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="주소찾기"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:id="@+id/enroll_find_address"
+                    android:background="@color/colorPrimaryDark"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/enroll_power_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="발전량"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:paddingTop="20dp"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/enroll_power"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="100"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kW"
+                        android:textSize="15sp"
+                        android:textColor="#000000"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
             <Button
                 android:id="@+id/enroll_agree1_btn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="참여 동의 >"
-                android:background="#EAEAEA"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:background="@color/colorPrimaryDark"
                 />
             <Button
                 android:id="@+id/enroll_agree2_btn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
                 android:text="개인정보수집 및 이용 동의 >"
-                android:background="#EAEAEA"
+
+                android:background="@color/colorPrimaryDark"
                 />
             <Button
                 android:id="@+id/enroll_final_btn"
@@ -192,6 +225,7 @@
                 android:layout_marginTop="30dp"
                 android:text="신청하기"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:background="#2E3339"
                 android:onClick="enrollComplete"
                 />

@@ -1,5 +1,7 @@
 package com.tistory.qlyh8.emarket.firebase;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -8,17 +10,13 @@ public class GetType {
 
     public static String userType = "";
 
-    public void isType(){
+    public static void isType(){
 
-        GetDB.mUserRef.addValueEventListener(new ValueEventListener() {
+        GetDB.mUserRef.child(GetAuth.getGoogleUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    if(snapshot.getKey().equals(GetAuth.getGoogleUserId())) {
-                        userType = snapshot.child("type").getValue(String.class);
-                        break;
-                    }
-                }
+                userType = dataSnapshot.child("type").getValue(String.class);
+                Log.d("qwe",userType);
             }
 
             @Override
