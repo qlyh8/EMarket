@@ -24,6 +24,7 @@ import com.tistory.qlyh8.emarket.firebase.GetType;
 import com.tistory.qlyh8.emarket.model.Enroll;
 import com.tistory.qlyh8.emarket.status.YearViewActivity;
 import com.tistory.qlyh8.emarket.model.Sample;
+import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
 
 import java.util.Iterator;
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Button goYearBtn;
 
-    private Button insertDataSampleBtn;
+    private Button usePatternBtn;
     private Button getDataSampleBtn;
 
     @Override
@@ -56,20 +57,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
         //파이어베이스 데이터 삽입, 가져오기 샘플 버튼
-        insertDataSampleBtn = (Button)findViewById(R.id.insert);
+        usePatternBtn = (Button)findViewById(R.id.main_use_pattern_btn);
         getDataSampleBtn = (Button)findViewById(R.id.get);
 
-        insertDataSampleBtn.setOnClickListener(new View.OnClickListener() {
+        usePatternBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertDataSample("sample1", "sample2", 123);
+                //insertDataSample("sample1", "sample2", 123);
+                startActivity(new Intent(getBaseContext(), UsePatternViewActivity.class));
             }
         });
 
         getDataSampleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDataSample();
+                //getDataSample();
             }
         });
     }

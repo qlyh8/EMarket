@@ -108,8 +108,17 @@ public class EnrollFormActivity extends AppCompatActivity {
     }
     public void enrollComplete(View v){
 
-        insertData("2017", "N", name.getText().toString(), uniqueNumber.getText().toString(), phone.getText().toString(), address.getText().toString(), power.getText().toString());
-        goStatusEnroll(v);
+        if(name.getText().toString().equals("")
+            || uniqueNumber.getText().toString().equals("")
+            || phone.getText().toString().equals("")
+            || address.getText().toString().equals("")
+            || power.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "정보를 입력해주세요!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            insertData("2017", "N", name.getText().toString(), uniqueNumber.getText().toString(), phone.getText().toString(), address.getText().toString(), power.getText().toString());
+            goStatusEnroll(v);
+        }
     }
 
     //객체 sample를 그대로 넣어주면 파이어베이스에 sample의 멤버 변수들이 등록

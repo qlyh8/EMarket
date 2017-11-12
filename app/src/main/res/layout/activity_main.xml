@@ -77,11 +77,11 @@
             android:layout_marginRight="2dp"
             />
         <Button
-            android:id="@+id/insert"
+            android:id="@+id/main_use_pattern_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="버튼4"
+            android:text="소비패턴"
             android:background="#2E3339"
             android:textColor="#FFFFFF"
             android:layout_marginRight="2dp"

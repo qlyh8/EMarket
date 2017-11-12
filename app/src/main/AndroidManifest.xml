@@ -27,6 +27,9 @@
         <activity android:name=".ListActivity"/>
         <activity android:name=".status.YearViewActivity"/>
         <activity android:name=".status.EnrollFormActivity"/>
+        <activity android:name=".usePattern.UsePatternViewActivity"/>
+        <activity android:name=".DataManager.UseMonthExcelFile"/>
+        <activity android:name=".DataManager.LoadExcelFiles"/>
     </application>
 
 </manifest>
