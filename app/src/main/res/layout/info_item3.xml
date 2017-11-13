@@ -4,16 +4,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/gradient"
-    android:orientation="vertical">
+    android:background="#40A6C8"
+    android:orientation="vertical"
+    android:weightSum="4"
+    >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="전력거래란?"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textColor="#FFFFFF"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info_3"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="에너지 전력거래"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 란"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="에너지 프로슈머가 태양광으로 발전한 전력을"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="본인이 소비하고 남은 전력을"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="인근 소비자에게 판매하는 것입니다"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="에너지 프로슈머는 일정 수익을 벌어들일 수 있고"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="소비자는 사용한 전기 요금 단가를 낮출 수 있죠"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이제 이 친환경 에너지 거래를"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시작해볼까요?"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            />
+
+        <Button
+            android:id="@+id/info_btn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:background="@color/customButton"
+            android:layout_marginTop="20dp"
+            />
+    </LinearLayout>
 </LinearLayout>

@@ -59,7 +59,7 @@ public class EnrollStatusActivity extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    if(snapshot.getKey().equals(GetAuth.getGoogleUserId())) {
+                    if(snapshot.getKey().equals(GetAuth.getUserId())) {
                         for (DataSnapshot childSnapshot: snapshot.getChildren()) {
                             if(childSnapshot.child("year").equals(year)) {
                                 isEnroll = true;

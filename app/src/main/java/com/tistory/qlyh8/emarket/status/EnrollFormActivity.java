@@ -126,7 +126,7 @@ public class EnrollFormActivity extends AppCompatActivity {
         Enroll enrollData = new Enroll(year, ok, name, uniqueNumber, phone, address, power,latitude,longitude);
         GetDB.mDatabaseReference.child("enroll")
                                 .child(userType)
-                                .child(GetAuth.getGoogleUserId())
+                                .child(GetAuth.getUserId())
                                 .push()
                                 .setValue(enrollData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

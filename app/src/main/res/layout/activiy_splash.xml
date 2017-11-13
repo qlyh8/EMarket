@@ -38,17 +38,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/sun"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        />
-    <Button
-        android:id="@+id/sign_check_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="#2E3339"
-        android:text="Google 로그인"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:onClick="googleSignIn"
+        android:layout_marginTop="200dp"
         />
 </LinearLayout>

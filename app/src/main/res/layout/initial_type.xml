@@ -3,22 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ED7D70"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="당신은 누구인가요?"
-        android:textColor="#FFFFFF"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:layout_marginTop="120dp"
-        />
+    android:background="@color/customGray"
+    android:orientation="vertical"
+    android:weightSum="5"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_horizontal|center_vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="유형을 선택해주세요"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
         android:padding="50dp"
         android:weightSum="1"
         >
@@ -33,7 +43,7 @@
                 android:id="@+id/img_prosumer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/prosumer1"
+                android:src="@drawable/prosumer2"
                 android:gravity="center"
                 android:paddingBottom="20dp"
                 android:clickable="true"
@@ -42,8 +52,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="프로슈머입니다"
-                android:textColor="#FFFFFF"
+                android:textColor="#000"
                 android:textAlignment="center"
+                android:textStyle="bold"
                 />
         </LinearLayout>
 
@@ -57,7 +68,7 @@
                 android:id="@+id/img_consumer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/consumer1"
+                android:src="@drawable/consumer2"
                 android:paddingBottom="20dp"
                 android:clickable="true"
                 />
@@ -65,22 +76,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="소비자입니다"
-                android:textColor="#FFFFFF"
+                android:textColor="#000"
                 android:textAlignment="center"
+                android:textStyle="bold"
                 />
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/type_check_button"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="#2E3339"
-        android:text="확인"
-        android:textColor="#FFFFFF"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:clickable="true"
-        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/type_check_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@color/customButton"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
 
 </LinearLayout>

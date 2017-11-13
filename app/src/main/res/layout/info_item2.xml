@@ -4,16 +4,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/gradient"
-    android:orientation="vertical">
+    android:background="#40A040"
+    android:orientation="vertical"
+    android:weightSum="4"
+    >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="프로슈머 - 컨슈머란?"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textColor="#FFFFFF"
-        />
-
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info_2"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="아파트 단지나 산업단지 내 태양광설비 등을 통해"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="소비 전력을 직접 생산하는 사람들을"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="에너지 프로슈머"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 라고 합니다"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="에너지 프로슈머는 친환경 에너지를"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="에너지 전력거래"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 를 통해"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="직접 생산, 소비하고 판매할 수 있습니다"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="그렇다면 에너지 전력거래란"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="무엇일까요?"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
 </LinearLayout>

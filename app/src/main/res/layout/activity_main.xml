@@ -49,52 +49,67 @@
         android:gravity="center"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/main_year"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="#2E3339"
-            android:text="MY"
-            android:textColor="#FFFFFF"
-            android:layout_marginRight="2dp"
-            />
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="#2E3339"
-            android:text="버튼2"
-            android:textColor="#FFFFFF"
-            android:layout_marginRight="2dp"
-            />
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="HOME"
-            android:layout_weight="1"
-            android:background="#FA5846"
-            android:textColor="#FFFFFF"
-            android:layout_marginRight="2dp"
-            />
-        <Button
             android:id="@+id/main_use_pattern_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
             android:text="소비패턴"
-            android:background="#2E3339"
             android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:paddingTop="2dp"
             android:layout_marginRight="2dp"
+            android:drawableTop="@drawable/ic_main_1"
+            />
+        <Button
+            android:id="@+id/main_year"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="거래하기"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:paddingTop="2dp"
+            android:layout_marginRight="2dp"
+            android:drawableTop="@drawable/ic_main_2"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="거래현황"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#FFFFFF"
+            android:paddingTop="2dp"
+            android:layout_marginRight="2dp"
+            android:drawableTop="@drawable/ic_main_3"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="리포트"
+            android:textStyle="bold"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#FFFFFF"
+            android:paddingTop="2dp"
+            android:layout_marginRight="2dp"
+            android:drawableTop="@drawable/ic_main_4"
             />
 
         <Button
             android:id="@+id/get"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="버튼5"
+            android:text="내정보"
+            android:textStyle="bold"
             android:layout_weight="1"
-            android:background="#2E3339"
+            android:paddingTop="2dp"
+            android:background="@color/colorPrimaryDark"
             android:textColor="#FFFFFF"
+            android:drawableTop="@drawable/ic_main_5"
             />
     </LinearLayout>
 </LinearLayout>

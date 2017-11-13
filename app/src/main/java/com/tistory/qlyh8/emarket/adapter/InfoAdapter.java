@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.tistory.qlyh8.emarket.MainActivity;
+import com.tistory.qlyh8.emarket.initialize.PhoneNumberAuthentication;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
@@ -22,10 +23,7 @@ public class InfoAdapter extends PagerAdapter {
     private Context context;
     //private List<Integer> res;
 
-    ImageView prosumer, consumer;
-    Button typeCheck;
-    int type = 0;   // 프로슈머(1)/소비자(2) 구분
-    int year = 2017;    //등록 날짜
+    Button infoBtn;
 
 /*
     public InfoAdapter(Context context, List<Integer> res) {
@@ -68,75 +66,29 @@ public class InfoAdapter extends PagerAdapter {
             case 2:
                 resId = R.layout.info_item3;
                 break;
-            case 3:
-                resId = R.layout.info_item4;
-                break;
         }
 
         View view = inflater.inflate(resId, container, false);
 
-        if(position == 3) {
-            prosumer = view.findViewById(R.id.img_prosumer);
-            consumer = view.findViewById(R.id.img_consumer);
-            typeCheck = view.findViewById(R.id.type_check_button);
-
-            click();
+        if(position == 2) {
+            infoBtn = view.findViewById(R.id.info_btn);
+            infoBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    context.startActivity(new Intent(context, PhoneNumberAuthentication.class));
+                    ((Activity)context).finish();
+                }
+            });
         }
 
         container.addView(view, 0);
         return view;
     }
 
-    private void click(){
-        prosumer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                prosumer.setImageResource(R.drawable.prosumer2);
-                consumer.setImageResource(R.drawable.consumer1);
-                type = 1;
-            }
-        });
-
-        consumer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                consumer.setImageResource(R.drawable.consumer2);
-                prosumer.setImageResource(R.drawable.prosumer1);
-                type = 2;
-            }
-        });
-
-        typeCheck.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(type == 1){
-                    GetDB.mUserRef.child(GetAuth.getGoogleUserId()).child("type").setValue("prosumer");
-                    Toast.makeText(context, "환영합니다 "+ GetAuth.getGoogleUserName() +" 프로슈머님!", Toast.LENGTH_SHORT).show();
-                    goMain();
-                }
-                    else if(type == 2){
-                    GetDB.mUserRef.child(GetAuth.getGoogleUserId()).child("type").setValue("consumer");
-                    Toast.makeText(context, "환영합니다 "+ GetAuth.getGoogleUserName() +" 소비자님!", Toast.LENGTH_SHORT).show();
-                    goMain();
-                }
-                else{
-                    Toast.makeText(context, "선택해주세요!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    public void goMain(){
-        context.startActivity(new Intent(context, MainActivity.class));
-        //context.startActivity(new Intent(context, YearViewActivity.class));
-        //context.startActivity(new Intent(context, ListActivity.class));
-        ((Activity)context).finish();
-    }
-
     @Override
     public int getCount() {
         //return res.size();
-        return 4;
+        return 3;
     }
 
     @Override

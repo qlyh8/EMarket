@@ -31,7 +31,18 @@ public class GetAuth {
         return result;
     }
 
-    public static String getGoogleUserPhone(){
+    public static String getUserId(){
+
+        String result;
+        try {
+            result = mAuth.getCurrentUser().getUid();
+        } catch (NullPointerException e){
+            result = "public";
+        }
+        return result;
+    }
+
+    public static String getUserPhone(){
 
         String result;
         try {

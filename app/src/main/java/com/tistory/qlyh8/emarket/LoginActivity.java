@@ -129,12 +129,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     mDatabaseReference.child("user").child(uId).child("username").setValue(userName);
 
                     Toast.makeText(getApplicationContext(), "안녕하세요 " + userName + "님!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getBaseContext(), InfoActivity.class));
-                    finish();
+                    //startActivity(new Intent(getBaseContext(), InfoActivity.class));
+                    //finish();
                 }
                 else{
-                    startActivity(new Intent(getBaseContext(), MainActivity.class));
-                    finish();
+                    //startActivity(new Intent(getBaseContext(), MainActivity.class));
+                    //finish();
                 }
             }
 
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
 
-        //startActivity(new Intent(getBaseContext(), InfoActivity.class));
-        //finish();
+        startActivity(new Intent(getBaseContext(), InfoActivity.class));
+        finish();
     }
 }

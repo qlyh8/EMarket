@@ -9,4 +9,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RedTheme" parent="FirebaseUI">
+        <!-- Required for sign-in flow styling -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/customButton</item>
+
+        <item name="colorControlNormal">@color/material_red_500</item>
+        <item name="colorControlActivated">@color/material_red_a700</item>
+        <item name="colorControlHighlight">@color/material_red_a200</item>
+        <item name="android:windowBackground">@color/customGray</item>
+    </style>
+
 </resources>

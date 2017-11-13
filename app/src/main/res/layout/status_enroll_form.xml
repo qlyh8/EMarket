@@ -95,6 +95,8 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="홍길동"
+                    android:maxLength="10"
+                    android:maxLines="1"
                     />
             </LinearLayout>
             <LinearLayout
@@ -114,6 +116,9 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:hint="12345678"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:inputType="number"
                     />
             </LinearLayout>
            <LinearLayout
@@ -133,6 +138,9 @@
                    android:layout_width="250dp"
                    android:layout_height="wrap_content"
                    android:hint="01012345678"
+                   android:maxLength="11"
+                   android:maxLines="1"
+                   android:inputType="number"
                    />
            </LinearLayout>
             <LinearLayout
@@ -186,6 +194,9 @@
                         android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="100"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:inputType="number"
                         />
                     <TextView
                         android:layout_width="wrap_content"
