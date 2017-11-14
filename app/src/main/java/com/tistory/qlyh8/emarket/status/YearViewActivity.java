@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,8 @@ public class YearViewActivity extends AppCompatActivity {
     private ImageView yearNext;
     private ImageView yearPrev;
     private TextView yearText;
+    private ImageView prevBtn;
+
     private int dataYear;
 
     @Override
@@ -36,6 +39,7 @@ public class YearViewActivity extends AppCompatActivity {
         yearText.setText(String.valueOf(dataYear));
         yearNext = (ImageView)findViewById(R.id.year_next_btn);
         yearPrev = (ImageView)findViewById(R.id.year_prev_btn);
+        prevBtn = (ImageView)findViewById(R.id.status_year_view_prev);
 
         yearPrev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +55,12 @@ public class YearViewActivity extends AppCompatActivity {
                 pagerRefresh();
             }
         });
-
+        prevBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goHome(view);
+            }
+        });
 
         tabLayout = (TabLayout)findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab());

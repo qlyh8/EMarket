@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ import com.tistory.qlyh8.emarket.model.Enroll;
 public class EnrollFormActivity extends AppCompatActivity {
 
     private int SEARCHADDRESS = 1000;
+
+    private ImageView goEnrollStatusBtn;
 
     private EditText name;
     private EditText uniqueNumber;
@@ -45,6 +48,14 @@ public class EnrollFormActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.status_enroll_form);
+
+        goEnrollStatusBtn = (ImageView) findViewById(R.id.enroll_form_prev);
+        goEnrollStatusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goStatusEnroll(view);
+            }
+        });
 
         name = (EditText)findViewById(R.id.enroll_name);
         uniqueNumber = (EditText)findViewById(R.id.enroll_unique_number);

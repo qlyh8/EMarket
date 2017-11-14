@@ -42,9 +42,9 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "모두 입력해주세요!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    powerNum = editNum1.getText().toString()
-                             + editNum2.getText().toString()
-                             + editNum3.getText().toString()
+                    powerNum = editNum1.getText().toString() + "-"
+                             + editNum2.getText().toString() + "-"
+                             + editNum3.getText().toString() + "-"
                              + editNum4.getText().toString();
 
                     userPowerNumRegister();
@@ -65,7 +65,9 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                GetDB.mUserRef.child(GetAuth.getUserId()).child("powerNumber").setValue(powerNum);
+                //GetDB.mUserRef.child(GetAuth.getUserId()).child("powerNumber").setValue(powerNum);
+                GetDB.mUserRef.child(GetAuth.getUserId()).child("powerNumber").setValue("08-25-0130056-1501");
+                GetDB.mUserRef.child(GetAuth.getUserId()).child("address").setValue("서울시 노원구 하계동 251-9");
                 //Toast.makeText(getApplicationContext(), "완료되었습니다", Toast.LENGTH_SHORT).show();
             }
 

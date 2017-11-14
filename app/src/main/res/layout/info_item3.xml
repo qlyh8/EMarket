@@ -14,13 +14,24 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
+        android:orientation="vertical"
         >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/info_3"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consumer"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:textColor="#FF525D"
+            />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -35,7 +46,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="에너지 전력거래"
+                android:text="에너지 컨슈머"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
@@ -48,82 +59,107 @@
                 android:textColor="#FFFFFF"
                 />
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="에너지 프로슈머가 태양광으로 발전한 전력을"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="본인이 소비하고 남은 전력을"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="인근 소비자에게 판매하는 것입니다"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="에너지 프로슈머는 일정 수익을 벌어들일 수 있고"
+            android:text="전기를 소비하며"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
+            android:paddingTop="10dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="소비자는 사용한 전기 요금 단가를 낮출 수 있죠"
+            android:text="프로슈머에게 전기를 사고 싶은 사람을 말합니다"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:gravity="center"
         >
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="이제 이 친환경 에너지 거래를"
-            android:textAlignment="center"
-            android:textSize="13sp"
-            android:textColor="#FFFFFF"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="시작해볼까요?"
-            android:textAlignment="center"
-            android:textSize="13sp"
-            android:textColor="#FFFFFF"
-            />
+            android:gravity="center"
+            >
+            <ImageView
+                android:id="@+id/info_item3_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_white"
+                android:clickable="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 거래 추천 대상"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 은"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/info_btn"
-            android:layout_width="250dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="확인"
-            android:textStyle="bold"
-            android:textColor="#FFF"
-            android:background="@color/customButton"
-            android:layout_marginTop="20dp"
+            android:text="월 전기 요금이 57,840원 이상이거나"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:paddingTop="10dp"
             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="(월 전기 사용량이 400KWh 이상)"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="월 전기 사용량이 누진 3단계에 진입하거나"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:paddingTop="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="진입 위험이 있을 시 해당됩니다 "
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+            <ImageView
+                android:id="@+id/info_item3_btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_white"
+                android:clickable="true"
+                />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tistory.qlyh8.emarket.MainActivity;
@@ -19,6 +21,7 @@ public class UsePatternViewActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabAdapterUsePattern pagerAdapter;
 
+    private ImageView goMainBtn;
     private TextView viewTypeText;
     private String viewTypeData;    //소비패턴(일/주/월)
 
@@ -26,6 +29,14 @@ public class UsePatternViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.use_pattern_view);
+
+        goMainBtn = (ImageView)findViewById(R.id.use_pattern_view_prev);
+        goMainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goHome(view);
+            }
+        });
 
         //Year Data
         viewTypeData = "소비패턴";

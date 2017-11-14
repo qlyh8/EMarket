@@ -1,5 +1,6 @@
 package com.tistory.qlyh8.emarket;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -31,8 +34,8 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
     private Button goYearBtn;
-
     private Button usePatternBtn;
+    private Button goProfileBtn;
     private Button getDataSampleBtn;
 
     @Override
@@ -42,12 +45,71 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         init();
         mapInit();
+
+        /*String name="1", email="2", uid="3", phone="4";
+        boolean emailVerified=false;
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Name, email address, and profile photo Url
+            name = user.getDisplayName();
+            email = user.getEmail();
+            phone = user.getPhoneNumber();
+            // Check if user's email is verified
+            emailVerified = user.isEmailVerified();
+
+            uid = user.getUid();
+        }
+        Toast.makeText(getApplicationContext(), "name:"+name+"\nemail:"+email+"\nverf:"+emailVerified+"\nuid:"+uid+"\nphone"+phone, Toast.LENGTH_LONG).show();
+        */
+        /*GetDB.mUserRef.child("testProsumer1_uid").child("phone").setValue("+821011111111");
+        GetDB.mUserRef.child("testProsumer1_uid").child("type").setValue("prosumer");
+        GetDB.mUserRef.child("testProsumer1_uid").child("address").setValue("");
+        GetDB.mUserRef.child("testProsumer1_uid").child("powerNumber").setValue("");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("name").setValue("testProsumer1");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("ok").setValue("Y");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("providePower").setValue("100");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("enrollYear").setValue("2017");
+
+        GetDB.mUserRef.child("testProsumer2_uid").child("phone").setValue("+821022222222");
+        GetDB.mUserRef.child("testProsumer2_uid").child("type").setValue("prosumer");
+        GetDB.mUserRef.child("testProsumer2_uid").child("address").setValue("");
+        GetDB.mUserRef.child("testProsumer2_uid").child("powerNumber").setValue("");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer2_uid").child("testProsumer2_enroll_key1").child("name").setValue("testProsumer2");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer2_uid").child("testProsumer2_enroll_key1").child("ok").setValue("Y");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer2_uid").child("testProsumer2_enroll_key1").child("providePower").setValue("200");
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer2_uid").child("testProsumer2_enroll_key1").child("enrollYear").setValue("2017");
+
+        GetDB.mUserRef.child("testConsumer1_uid").child("phone").setValue("+821033333333");
+        GetDB.mUserRef.child("testConsumer1_uid").child("type").setValue("consumer");
+        GetDB.mUserRef.child("testConsumer1_uid").child("address").setValue("");
+        GetDB.mUserRef.child("testConsumer1_uid").child("powerNumber").setValue("");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer1_uid").child("testConsumer1_enroll_key1").child("name").setValue("testConsumer1");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer1_uid").child("testConsumer1_enroll_key1").child("ok").setValue("Y");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer1_uid").child("testConsumer1_enroll_key1").child("needPower").setValue("66");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer1_uid").child("testConsumer1_enroll_key1").child("enrollYear").setValue("2017");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer1_uid").child("testConsumer1_enroll_key1").child("needMonth").setValue("2");
+
+        GetDB.mUserRef.child("testConsumer2_uid").child("phone").setValue("+821044444444");
+        GetDB.mUserRef.child("testConsumer2_uid").child("type").setValue("consumer");
+        GetDB.mUserRef.child("testConsumer2_uid").child("address").setValue("");
+        GetDB.mUserRef.child("testConsumer2_uid").child("powerNumber").setValue("");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer2_uid").child("testConsumer2_enroll_key1").child("name").setValue("testConsumer2");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer2_uid").child("testConsumer2_enroll_key1").child("ok").setValue("Y");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer2_uid").child("testConsumer2_enroll_key1").child("needPower").setValue("12");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer2_uid").child("testConsumer2_enroll_key1").child("enrollYear").setValue("2017");
+        GetDB.mEnrollRef.child("consumer").child("testConsumer2_uid").child("testConsumer2_enroll_key1").child("needMonth").setValue("5");*/
+
+        /*GetDB.mDatabaseReference.child("trade").child("test_trade1").child("prosumer").setValue("");
+        GetDB.mDatabaseReference.child("trade").child("test_trade1").child("consumer").setValue("");
+        GetDB.mDatabaseReference.child("trade").child("test_trade1").child("state").setValue("1");*/
     }
 
     private void init() {
 
         GetType.isType();
 
+        //거래현황
         goYearBtn = (Button)findViewById(R.id.main_year);
         goYearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +118,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
-        //파이어베이스 데이터 삽입, 가져오기 샘플 버튼
+        //소비패턴
         usePatternBtn = (Button)findViewById(R.id.main_use_pattern_btn);
-        getDataSampleBtn = (Button)findViewById(R.id.get);
-
         usePatternBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,17 +128,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        //내정보
+        goProfileBtn = (Button)findViewById(R.id.main_profile_btn);
+        goProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), ProfileActivity.class));
+                //Toast.makeText(getBaseContext(), "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //파이어베이스 데이터 삽입, 가져오기 샘플 버튼
+        /*getDataSampleBtn = (Button)findViewById(R.id.get);
         getDataSampleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //getDataSample();
             }
-        });
-    }
-
-    private void mapInit() {
-        SupportMapFragment mapFragment  = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        });*/
     }
 
     //객체 sample를 그대로 넣어주면 파이어베이스에 sample의 멤버 변수들이 등록
@@ -110,6 +177,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
     }
 
+    private void mapInit() {
+        SupportMapFragment mapFragment  = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         setUserMarker(googleMap);
@@ -127,7 +199,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 throw databaseError.toException();

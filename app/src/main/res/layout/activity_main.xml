@@ -12,11 +12,18 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_24"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-Market"
-            android:textSize="20sp"
+            android:text=" MARKET"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 
@@ -62,7 +69,6 @@
             android:drawableTop="@drawable/ic_main_1"
             />
         <Button
-            android:id="@+id/main_year"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -75,6 +81,7 @@
             android:drawableTop="@drawable/ic_main_2"
             />
         <Button
+            android:id="@+id/main_year"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="거래현황"
@@ -100,7 +107,7 @@
             />
 
         <Button
-            android:id="@+id/get"
+            android:id="@+id/main_profile_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="내정보"

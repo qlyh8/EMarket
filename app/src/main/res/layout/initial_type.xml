@@ -38,6 +38,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="0.5"
+            android:layout_marginRight="5dp"
             >
             <ImageView
                 android:id="@+id/img_prosumer"
@@ -63,6 +64,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="0.5"
+            android:layout_marginLeft="5dp"
             >
             <ImageView
                 android:id="@+id/img_consumer"

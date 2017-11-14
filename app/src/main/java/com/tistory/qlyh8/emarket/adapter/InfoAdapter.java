@@ -16,6 +16,7 @@ import com.tistory.qlyh8.emarket.initialize.PhoneNumberAuthentication;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 
 public class InfoAdapter extends PagerAdapter {
@@ -24,8 +25,10 @@ public class InfoAdapter extends PagerAdapter {
     //private List<Integer> res;
 
     Button infoBtn;
+    ImageView infoItem2, infoItem3_1, infoItem3_2;
+    LovelyInfoDialog infoDialog;
 
-/*
+    /*
     public InfoAdapter(Context context, List<Integer> res) {
         this.context = context;
         this.res = res;
@@ -66,11 +69,59 @@ public class InfoAdapter extends PagerAdapter {
             case 2:
                 resId = R.layout.info_item3;
                 break;
+            case 3:
+                resId = R.layout.info_item4;
+                break;
         }
 
         View view = inflater.inflate(resId, container, false);
+        infoDialog = new LovelyInfoDialog(view.getContext());
+
+        if(position == 1) {
+            infoItem2 = view.findViewById(R.id.info_item2_btn);
+            infoItem2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                            .setIcon(R.drawable.info_dialog)
+                            .setTitle("잉여전력")
+                            .setMessage("태양광 발전량 - 실제 전기 사용량")
+                            .setConfirmButtonText("확인")
+                            .show();
+                }
+            });
+        }
 
         if(position == 2) {
+            infoItem3_1 = view.findViewById(R.id.info_item3_btn1);
+            infoItem3_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                            .setIcon(R.drawable.info_dialog)
+                            .setTitle("거래 추천 대상")
+                            .setMessage("전력 거래 시\n이득을 볼 수 있는 컨슈머 조건")
+                            .setConfirmButtonText("확인")
+                            .show();
+                }
+            });
+            infoItem3_2 = view.findViewById(R.id.info_item3_btn2);
+            infoItem3_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                            .setIcon(R.drawable.info_dialog)
+                            .setTitle("누진 구간")
+                            .setMessage("200KWh 이하\n기본요금\u00A0\u00A0\u00A0 (910원)\n전력량요금 (93.3원/KWh)" +
+                                    "\n201~400KWh\n기본요금\u00A0\u00A0\u00A0 (1,600원)\n전력량요금 (187.9원/KWh)" +
+                                    "\n400KWh 초과\n기본요금\u00A0\u00A0\u00A0 (7,300원)\n전력량요금 (280.6원/KWh)")
+                            .setConfirmButtonText("확인")
+                            .show();
+                }
+            });
+        }
+
+        if(position == 3) {
             infoBtn = view.findViewById(R.id.info_btn);
             infoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -88,7 +139,7 @@ public class InfoAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         //return res.size();
-        return 3;
+        return 4;
     }
 
     @Override

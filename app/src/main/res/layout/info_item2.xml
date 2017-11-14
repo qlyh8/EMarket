@@ -14,35 +14,50 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:gravity="center"
+        android:orientation="vertical"
         >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/info_2"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pro"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:textColor="#FFD15C"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ducer + Con"
+                android:textSize="20sp"
+                android:textColor="#E8DBC4"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sumer"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:textColor="#FFD15C"
+                />
+        </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="아파트 단지나 산업단지 내 태양광설비 등을 통해"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="소비 전력을 직접 생산하는 사람들을"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,12 +69,12 @@
                 android:text="에너지 프로슈머"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFF"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 라고 합니다"
+                android:text=" 란"
                 android:textSize="15sp"
                 android:textColor="#FFFFFF"
                 />
@@ -67,12 +82,28 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="에너지 프로슈머는 친환경 에너지를"
+            android:text="전기를 소비함과 동시해 생산하며"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:paddingTop="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="쓰고 남은 전기를 팔고 싶은 사람을 말합니다"
+            android:textAlignment="center"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,50 +112,57 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="에너지 전력거래"
-                android:textSize="15sp"
+                android:text="에너지 프로슈머의 조건"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFF"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 를 통해"
-                android:textSize="14sp"
+                android:text=" 은"
+                android:textSize="15sp"
                 android:textColor="#FFFFFF"
                 />
         </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="직접 생산, 소비하고 판매할 수 있습니다"
+            android:text="가정용 태양광 발전기를 소유하고"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="그렇다면 에너지 전력거래란"
-            android:textAlignment="center"
-            android:textSize="13sp"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="20dp"
+            android:paddingTop="10dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="무엇일까요?"
+            android:text="발전 설비용량이 1000kWh 이하이며"
             android:textAlignment="center"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textColor="#FFFFFF"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="잉여전력이 존재해야 합니다 "
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+            <ImageView
+                android:id="@+id/info_item2_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_white"
+                android:clickable="true"
+                />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

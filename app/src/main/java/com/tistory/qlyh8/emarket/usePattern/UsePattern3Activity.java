@@ -80,11 +80,12 @@ public class UsePattern3Activity extends Fragment {
             values = new ArrayList<>();
             for (int k = 0; k < numSubcolumns; ++k) {
                 //values.add(new SubcolumnValue((int)fieldNumbers[i], ChartUtils.pickColor()));
-                values.add(new SubcolumnValue(0, ChartUtils.pickColor()));
+                values.add(new SubcolumnValue(fieldNumbers[k], ChartUtils.pickColor()));        //여기
             }
 
             axisValues.add(new AxisValue(i).setLabel(fields[i]));
             columns.add(new Column(values).setHasLabelsOnlyForSelected(true));
+
         }
 
         columnData = new ColumnChartData(columns);
@@ -96,8 +97,6 @@ public class UsePattern3Activity extends Fragment {
 
         // Set selection mode to keep selected bottom column highlighted.
         columnChart.setValueSelectionEnabled(true);
-
-        columnChart.setZoomType(ZoomType.HORIZONTAL);
     }
 
     private void prepareDataAnimation() {

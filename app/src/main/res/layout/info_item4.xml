@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#FFA040"
+    android:orientation="vertical"
+    android:weightSum="4"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info_4"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전력거래"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:textColor="#2587C6"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="에너지 전력거래"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 란"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="에너지 프로슈머가 태양광으로 발전한 남은 전력을"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="컨슈머에게 판매하는 것입니다"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 거래시 유의 사항"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 은"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="모든 거래는 전월 사용량을 기준으로 하며"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한국전력공사의 승인 이후에 가능합니다 "
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+            <ImageView
+                android:id="@+id/info_item4_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_white"
+                android:clickable="true"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="또한 현금이 아닌"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:paddingTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전월 사용량에 대한 전기 요금으로 정산됩니다 "
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                />
+            <ImageView
+                android:id="@+id/info_item4_btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/info_white"
+                android:clickable="true"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/info_btn"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="확인"
+            android:textStyle="bold"
+            android:textColor="#FFF"
+            android:background="@color/customButton"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+</LinearLayout>

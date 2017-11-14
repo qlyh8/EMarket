@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
@@ -29,8 +30,13 @@ public class PhoneNumberAuthentication extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseAuth auth = FirebaseAuth.getInstance();
+
         if (auth.getCurrentUser() != null) {
             // already signed in
+            startActivity(new Intent(PhoneNumberAuthentication.this, MainActivity.class));
+            finish();
+        } else {
+            // not signed in
             startActivityForResult(
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
@@ -41,11 +47,6 @@ public class PhoneNumberAuthentication extends AppCompatActivity {
                             .setTheme(R.style.RedTheme)
                             .build(),
                     RC_SIGN_IN);
-            //startActivity(new Intent(PhoneNumberAuthentication.this, MainActivity.class));
-            //finish();
-        } else {
-            // not signed in
-
         }
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -66,14 +67,17 @@ public class PhoneNumberAuthentication extends AppCompatActivity {
                 if (response == null) {
                     // User pressed back button
                     Log.e("Login","Login canceled by User");
+                    Toast.makeText(getApplicationContext(), "로그인이 취소되었습니다", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (response.getErrorCode() == ErrorCodes.NO_NETWORK) {
                     Log.e("Login","No Internet Connection");
+                    Toast.makeText(getApplicationContext(), "인터넷 연결이 끊어졌습니다", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (response.getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
                     Log.e("Login","Unknown Error");
+                    Toast.makeText(getApplicationContext(), "알 수 없는 오류입니다", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -97,7 +101,6 @@ public class PhoneNumberAuthentication extends AppCompatActivity {
 
                 if(!isUser){
                     GetDB.mUserRef.child(GetAuth.getUserId()).child("phone").setValue(GetAuth.getUserPhone());
-
                     //Toast.makeText(getApplicationContext(), "완료되었습니다", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(getBaseContext(), InfoActivity.class));
                     //finish();
