@@ -17,11 +17,16 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
 import com.tistory.qlyh8.emarket.model.Enroll;
+import com.tistory.qlyh8.emarket.model.User;
 
 public class EnrollFormActivity extends AppCompatActivity {
 
@@ -30,11 +35,11 @@ public class EnrollFormActivity extends AppCompatActivity {
     private ImageView goEnrollStatusBtn;
 
     private EditText name;
-    private EditText uniqueNumber;
-    private EditText phone;
-    private TextView address_text;
-    private EditText address;
-    private Button findAddress;
+    //private EditText uniqueNumber;
+    //private EditText phone;
+    //private TextView address_text;
+    //private EditText address;
+    //private Button findAddress;
     private TextView power_text;
     private EditText power;
 
@@ -43,6 +48,8 @@ public class EnrollFormActivity extends AppCompatActivity {
     private String userType;
     private double latitude;
     private double longitude;
+
+    private User userData = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,11 +65,11 @@ public class EnrollFormActivity extends AppCompatActivity {
         });
 
         name = (EditText)findViewById(R.id.enroll_name);
-        uniqueNumber = (EditText)findViewById(R.id.enroll_unique_number);
-        phone = (EditText)findViewById(R.id.enroll_phone);
-        address_text = (TextView)findViewById(R.id.enroll_address_text);
-        address = (EditText)findViewById(R.id.enroll_address);
-        findAddress = (Button)findViewById(R.id.enroll_find_address);
+        //uniqueNumber = (EditText)findViewById(R.id.enroll_unique_number);
+        //phone = (EditText)findViewById(R.id.enroll_phone);
+        //address_text = (TextView)findViewById(R.id.enroll_address_text);
+        //address = (EditText)findViewById(R.id.enroll_address);
+        /*findAddress = (Button)findViewById(R.id.enroll_find_address);
         findAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +80,7 @@ public class EnrollFormActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         power_text = (TextView)findViewById(R.id.enroll_power_text);
         power = (EditText)findViewById(R.id.enroll_power);
         enrollFinalBtn = (Button)findViewById(R.id.enroll_final_btn);
@@ -88,7 +95,7 @@ public class EnrollFormActivity extends AppCompatActivity {
                Place place = PlaceAutocomplete.getPlace(EnrollFormActivity.this, data);
                latitude = place.getLatLng().latitude;
                longitude = place.getLatLng().longitude;
-               address.setText(place.getAddress());
+               //address.setText(place.getAddress());
            }
        }
     }
@@ -102,13 +109,13 @@ public class EnrollFormActivity extends AppCompatActivity {
     public void setType(){
 
         if(GetType.userType.equals("prosumer")){
-            address_text.setText("장소(발전설비)");
+            //address_text.setText("장소(발전설비)");
             power_text.setText("발전설비용량");
             enrollFinalBtn.setText("등록하기");
             userType = "prosumer";
         }
         else if(GetType.userType.equals("consumer")){
-            address_text.setText("주소");
+            //address_text.setText("주소");
             power_text.setText("요구발전량");
             enrollFinalBtn.setText("다음");
             userType = "consumer";
@@ -119,7 +126,7 @@ public class EnrollFormActivity extends AppCompatActivity {
     }
     public void enrollComplete(View v){
 
-        if(name.getText().toString().equals("")
+        /*if(name.getText().toString().equals("")
             || uniqueNumber.getText().toString().equals("")
             || phone.getText().toString().equals("")
             || address.getText().toString().equals("")
@@ -130,6 +137,26 @@ public class EnrollFormActivity extends AppCompatActivity {
             insertData("2017", "N", name.getText().toString(), uniqueNumber.getText().toString(), phone.getText().toString(), address.getText().toString(), power.getText().toString());
             goStatusEnroll(v);
         }
+        insertData("2017", "N", name.getText().toString(), uniqueNumber.getText().toString(), phone.getText().toString(), address.getText().toString(), power.getText().toString());
+        */
+        if(name.getText().toString().equals("") || power.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "정보를 입력해주세요!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            GetDB.mUserRef.child(GetAuth.getUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    userData = dataSnapshot.getValue(User.class);
+                    insertData("2017", "N", name.getText().toString(), userData.getPowerNumber(), userData.getPhone(), userData.getAddress(), power.getText().toString());
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    throw databaseError.toException();
+                }
+            });
+        }
+
+        goStatusEnroll(v);
     }
 
     //객체 sample를 그대로 넣어주면 파이어베이스에 sample의 멤버 변수들이 등록

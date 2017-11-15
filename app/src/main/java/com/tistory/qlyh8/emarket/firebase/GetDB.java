@@ -10,4 +10,5 @@ public class GetDB {
     public static DatabaseReference mDatabaseReference = mFirebaseDatabase.getReference();
     public static DatabaseReference mUserRef = mDatabaseReference.child("user");
     public static DatabaseReference mEnrollRef = mDatabaseReference.child("enroll");
+    public static DatabaseReference mTradeRef = mDatabaseReference.child("trade");
 }

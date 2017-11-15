@@ -36,7 +36,7 @@ public class YearViewActivity extends AppCompatActivity {
         //Year Data
         dataYear = 2017;
         yearText = (TextView)findViewById(R.id.year_text_view);
-        yearText.setText(String.valueOf(dataYear));
+        yearText.setText(String.valueOf(dataYear) + " 매칭 현황");
         yearNext = (ImageView)findViewById(R.id.year_next_btn);
         yearPrev = (ImageView)findViewById(R.id.year_prev_btn);
         prevBtn = (ImageView)findViewById(R.id.status_year_view_prev);
@@ -98,7 +98,7 @@ public class YearViewActivity extends AppCompatActivity {
 
 
     private void yearTextSet(){
-        yearText.setText(String.valueOf(dataYear));
+        yearText.setText(String.valueOf(dataYear) + " 매칭 현황");
     }
     private void dataYearPrevCheck(){
         if(dataYear>2016){

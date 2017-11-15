@@ -3,6 +3,8 @@ package com.tistory.qlyh8.emarket;
 import android.content.Intent;
 import android.os.Handler;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
@@ -38,9 +40,11 @@ public class SplashActivity extends AwesomeSplash {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(GetAuth.getUserId() != null){
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    //startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                if (user != null) {
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), InfoActivity.class));
                     finish();
                 }
                 else{

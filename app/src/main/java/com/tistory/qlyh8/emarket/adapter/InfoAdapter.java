@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.tistory.qlyh8.emarket.LoginActivity;
 import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.initialize.PhoneNumberAuthentication;
 import com.tistory.qlyh8.emarket.R;
@@ -126,7 +127,8 @@ public class InfoAdapter extends PagerAdapter {
             infoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context, PhoneNumberAuthentication.class));
+                    //context.startActivity(new Intent(context, PhoneNumberAuthentication.class));
+                    context.startActivity(new Intent(context, LoginActivity.class));
                     ((Activity)context).finish();
                 }
             });

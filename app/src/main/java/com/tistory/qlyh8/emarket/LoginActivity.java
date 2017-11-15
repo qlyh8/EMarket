@@ -3,8 +3,12 @@ package com.tistory.qlyh8.emarket;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -16,17 +20,156 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.tistory.qlyh8.emarket.firebase.GetAuth;
+import com.tistory.qlyh8.emarket.firebase.GetDB;
+import com.tistory.qlyh8.emarket.initialize.InitialPowerNumberActivity;
 
-public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+import java.util.concurrent.TimeUnit;
+
+public class LoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private LoadingActivity loading;
+    private Button loginBtn, nextBtn;
+    private EditText phoneNumber;
+    private EditText authNumber;
+    private boolean isComplete = false;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
+        init();
+    }
+
+    private void init() {
+        mAuth = FirebaseAuth.getInstance();
+        loading = new LoadingActivity(this);
+
+        //로그인 체크
+        if(mAuth.getCurrentUser() != null) {
+            //다른 액티비티로 넘어가기
+            //Toast.makeText(this, mAuth.getCurrentUser().getPhoneNumber(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "로그인되었습니다.", Toast.LENGTH_SHORT).show();
+            //startActivity(new Intent(this, MainActivity.class));
+            //finish();
+        }
+
+        loginBtn = (Button)findViewById(R.id.login_send_auth_btn);
+        phoneNumber = (EditText) findViewById(R.id.login_phone_number);
+        phoneNumber.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+        authNumber = (EditText)findViewById(R.id.login_get_auth_number);
+        nextBtn = (Button)findViewById(R.id.login_next_btn);
+
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //예외처리
+                if(phoneNumber.getText().toString() == null) {
+                    Toast.makeText(LoginActivity.this, "전화번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                startPhoneNumberVerification(phoneNumber.getText().toString());
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isComplete){
+                    startActivity(new Intent(getBaseContext(), InitialPowerNumberActivity.class));
+                    finish();
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "본인인증이 필요합니다.", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+    }
+
+    private void startPhoneNumberVerification(String phoneNumber) {
+        loading.show(); //로딩 시작
+
+        PhoneAuthProvider.OnVerificationStateChangedCallbacks  mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(PhoneAuthCredential credential) {
+                signInWithPhoneAuthCredential(credential);
+            }
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
+                //인증 실패시
+                Toast.makeText(LoginActivity.this, "인증이 실패하였습니다.", Toast.LENGTH_SHORT).show();
+            }};
+
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,        // Phone number to verify
+                20,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                this,               // Activity (for callback binding)
+                mCallbacks);        // OnVerificationStateChangedCallbacks
+
+    }
+
+    private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        loading.dismiss(); //로딩 끝
+
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = task.getResult().getUser();
+                            authNumber.setText(credential.getSmsCode());
+                            //인증 성공 유저 정보 읽어오고 인증번호에 값 할당하는곳
+                            userRegister();
+                            isComplete = true;
+                            Toast.makeText(LoginActivity.this, "인증이 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                        }
+                    }
+                });
+    }
+
+    private void userRegister(){
+        GetDB.mUserRef.addValueEventListener(new ValueEventListener() {
+            boolean isUser = false;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    if(snapshot.getKey().equals(GetAuth.getUserId())) {
+                        isUser = true;
+                        break;
+                    }
+                }
+                if(!isUser){
+                    GetDB.mUserRef.child(GetAuth.getUserId()).child("phone").setValue(GetAuth.getUserPhone());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                throw databaseError.toException();
+            }
+        });
+    }
+}
+
+/*public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
@@ -147,4 +290,4 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         startActivity(new Intent(getBaseContext(), InfoActivity.class));
         finish();
     }
-}
+}*/

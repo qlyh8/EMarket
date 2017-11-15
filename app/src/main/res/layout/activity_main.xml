@@ -61,7 +61,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
-            android:text="소비패턴"
+            android:text="자가진단"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:paddingTop="2dp"
@@ -69,6 +69,7 @@
             android:drawableTop="@drawable/ic_main_1"
             />
         <Button
+            android:id="@+id/main_trade_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -84,7 +85,7 @@
             android:id="@+id/main_year"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="거래현황"
+            android:text="매칭현황"
             android:textStyle="bold"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"

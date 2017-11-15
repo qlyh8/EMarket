@@ -25,16 +25,19 @@ import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
 import com.tistory.qlyh8.emarket.model.Enroll;
+import com.tistory.qlyh8.emarket.status.TradeStatusActivity;
 import com.tistory.qlyh8.emarket.status.YearViewActivity;
 import com.tistory.qlyh8.emarket.model.Sample;
 import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
 
+import java.util.Calendar;
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
 
-    private Button goYearBtn;
     private Button usePatternBtn;
+    private Button goTradeListBtn;
+    private Button goYearBtn;
     private Button goProfileBtn;
     private Button getDataSampleBtn;
 
@@ -103,22 +106,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         /*GetDB.mDatabaseReference.child("trade").child("test_trade1").child("prosumer").setValue("");
         GetDB.mDatabaseReference.child("trade").child("test_trade1").child("consumer").setValue("");
         GetDB.mDatabaseReference.child("trade").child("test_trade1").child("state").setValue("1");*/
+
+        /*Calendar calendar = Calendar.getInstance();
+        int thisYear = calendar.get(Calendar.YEAR);
+        int thisMonth = calendar.get(Calendar.MONTH)+1;
+        int thisDay = calendar.get(Calendar.DAY_OF_MONTH);
+
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("enrollMonth").setValue(thisMonth);
+        GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("enrollDay").setValue(thisDay);*/
     }
 
     private void init() {
 
         GetType.isType();
 
-        //거래현황
-        goYearBtn = (Button)findViewById(R.id.main_year);
-        goYearBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, YearViewActivity.class));
-            }
-        });
-
-        //소비패턴
+        //자가진단
         usePatternBtn = (Button)findViewById(R.id.main_use_pattern_btn);
         usePatternBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +129,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 startActivity(new Intent(getBaseContext(), UsePatternViewActivity.class));
             }
         });
+
+        //거래하기
+        goTradeListBtn = (Button)findViewById(R.id.main_trade_btn);
+        goTradeListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getBaseContext(), TradeListActivity.class));
+            }
+        });
+
+        //매칭현황
+        goYearBtn = (Button)findViewById(R.id.main_year);
+        goYearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, YearViewActivity.class));
+            }
+        });
+
 
         //내정보
         goProfileBtn = (Button)findViewById(R.id.main_profile_btn);

@@ -30,4 +30,5 @@
     <color name="customButton">#2E3339</color>
     <color name="customGray">#EAEAEA</color>
     <color name="customDarkGray">#B0B0B0</color>
+    <color name="customDarkGreen">#3B4850</color>
 </resources>
