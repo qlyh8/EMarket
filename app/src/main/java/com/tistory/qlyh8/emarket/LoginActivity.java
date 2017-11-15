@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //예외처리
-                if(phoneNumber.getText().toString() == null) {
+                if(phoneNumber.getText().toString() == null || phoneNumber.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "전화번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -133,14 +133,14 @@ public class LoginActivity extends AppCompatActivity {
                         loading.dismiss(); //로딩 끝
 
                         if (task.isSuccessful()) {
-                            FirebaseUser user = task.getResult().getUser();
+                            //FirebaseUser user = task.getResult().getUser();
                             authNumber.setText(credential.getSmsCode());
                             //인증 성공 유저 정보 읽어오고 인증번호에 값 할당하는곳
                             userRegister();
                             isComplete = true;
                             Toast.makeText(LoginActivity.this, "인증이 성공하였습니다.", Toast.LENGTH_SHORT).show();
                         } else {
-
+                            Toast.makeText(LoginActivity.this, "인증에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

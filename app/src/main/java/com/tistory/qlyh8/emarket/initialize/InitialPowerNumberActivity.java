@@ -68,6 +68,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                 //GetDB.mUserRef.child(GetAuth.getUserId()).child("powerNumber").setValue(powerNum);
                 GetDB.mUserRef.child(GetAuth.getUserId()).child("powerNumber").setValue("08-25-0130056-1501");
                 GetDB.mUserRef.child(GetAuth.getUserId()).child("address").setValue("서울시 노원구 하계동 251-9");
+                //GetDB.mUserRef.child(GetAuth.getUserId()).child("powerTrade").setValue("100");
                 //Toast.makeText(getApplicationContext(), "완료되었습니다", Toast.LENGTH_SHORT).show();
             }
 
