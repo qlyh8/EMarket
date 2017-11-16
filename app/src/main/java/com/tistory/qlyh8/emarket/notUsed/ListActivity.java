@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket;
+package com.tistory.qlyh8.emarket.notUsed;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,11 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.tistory.qlyh8.emarket.adapter.ListAdapter;
+import com.tistory.qlyh8.emarket.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
+//샘플 리스트 액티비티
 public class ListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;

@@ -1,5 +1,6 @@
-package com.tistory.qlyh8.emarket.model;
+package com.tistory.qlyh8.emarket.notUsed;
 
+//샘플 클래스
 public class Sample {
 
     //알트 + insert 누르면 클래스 함수 자동으로 만들어주는 단축키

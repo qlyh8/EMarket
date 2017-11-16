@@ -1,61 +1,58 @@
-package com.tistory.qlyh8.emarket.adapter;
+package com.tistory.qlyh8.emarket.trade;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.tistory.qlyh8.emarket.R;
 
 import java.util.List;
 
-
-public class ListAdapterStatusTrade extends RecyclerView.Adapter<ListAdapterStatusTrade.ViewHolder> {
+//프로슈머 리스트 어댑터
+public class TradeListAdapter1 extends RecyclerView.Adapter<TradeListAdapter1.ViewHolder> {
 
     private Context context;
     private LayoutInflater mInflater;
-    private List<Integer> res;
+    private List<String> res1, res2;
 
-    public ListAdapterStatusTrade(Context context, List<Integer> res){
+    public TradeListAdapter1(Context context, List<String> res1,  List<String> res2){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
-        this.res = res;
+        this.res1 = res1;
+        this.res2 = res2;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.status_trade_item, parent, false);
+        View view = mInflater.inflate(R.layout.trade_list_item1, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         //각 아이템의 이벤트를 할당
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mInflater.getContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
-            }
-        });
+        holder.nameTextView.setText(res1.get(position));
+        holder.powerTextView.setText(res2.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return res.size();
+        return res1.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         //각 아이템의 항목을 할당
-        private Button button;
+        private TextView nameTextView, powerTextView;
 
         public ViewHolder(View view) {
             super(view);
-            button = view.findViewById(R.id.status_trade_list_button);
+            nameTextView = view.findViewById(R.id.trade_list_item1_name_text);
+            powerTextView = view.findViewById(R.id.trade_list_item1_power_text);
         }
     }
 }

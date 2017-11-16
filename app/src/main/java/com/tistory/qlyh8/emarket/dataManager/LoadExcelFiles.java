@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket.DataManager;
+package com.tistory.qlyh8.emarket.dataManager;
 
 import android.app.Activity;
 import android.content.Context;

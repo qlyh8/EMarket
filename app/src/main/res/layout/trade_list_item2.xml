@@ -2,8 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:gravity="center"
+    android:layout_height="80dp"
     android:background="#FFF"
     android:weightSum="4"
     android:layout_margin="5dp"
@@ -18,39 +17,42 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/trade_user"
+            android:src="@drawable/trade_consumer"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:weightSum="2"
         android:orientation="vertical"
+        android:layout_marginLeft="10dp"
         >
         <TextView
+            android:id="@+id/trade_list_item2_name_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="발전량: 100 KWh"
+            android:text="만수르님"
             android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#808080"
+            android:textSize="16sp"
+            android:textColor="@color/material_red_200"
             android:gravity="center_vertical|bottom"
             />
         <TextView
+            android:id="@+id/trade_list_item2_power_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="2017-11-14"
-            android:textSize="16sp"
+            android:text="100KWh 이상 거래량"
+            android:textSize="13sp"
             android:textColor="#757575"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             />
     </LinearLayout>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -64,5 +66,5 @@
         android:textColor="#FFF"
         android:textStyle="bold"
         android:background="#73685A"/>
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

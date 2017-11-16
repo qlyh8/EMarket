@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 
+//내 정보
 public class ProfileActivity extends AppCompatActivity {
 
     private ImageView goMainBtn;
@@ -50,15 +51,15 @@ public class ProfileActivity extends AppCompatActivity {
 
                     if(dataSnapshot.child("type").getValue().equals("prosumer")){
                         typeImg.setImageResource(R.drawable.prosumer1);
-                        typeText.setText("PROSUMER");
+                        typeText.setText(dataSnapshot.child("username").getValue() + " 프로슈머");
                     }
                     else if(dataSnapshot.child("type").getValue().equals("consumer")){
                         typeImg.setImageResource(R.drawable.consumer1);
-                        typeText.setText("CONSUMER");
+                        typeText.setText(dataSnapshot.child("username").getValue() + " 컨슈머");
                     }
                     else {
                         typeImg.setImageResource(R.drawable.sun_128_white);
-                        typeText.setText("TYPE");
+                        typeText.setText("NAME &amp; TYPE");
                     }
                     phoneText.setText(dataSnapshot.child("phone").getValue().toString());
                     addressText.setText(dataSnapshot.child("address").getValue().toString());

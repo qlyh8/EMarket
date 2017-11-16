@@ -7,19 +7,16 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
-import com.tistory.qlyh8.emarket.adapter.TabAdapter;
-import com.tistory.qlyh8.emarket.adapter.TabAdapterUsePattern;
 
 public class UsePatternViewActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private TabAdapterUsePattern pagerAdapter;
+    private UsePatternTabAdapter pagerAdapter;
 
     private ImageView goMainBtn;
     private TextView viewTypeText;
@@ -51,7 +48,7 @@ public class UsePatternViewActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.use_pattern_view_pager);
 
         // Creating TabPagerAdapter adapter
-        pagerAdapter = new TabAdapterUsePattern(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
+        pagerAdapter = new UsePatternTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -85,7 +82,7 @@ public class UsePatternViewActivity extends AppCompatActivity {
 
     private void pagerRefresh(){
         yearTextSet();
-        pagerAdapter = new TabAdapterUsePattern(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
+        pagerAdapter = new UsePatternTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
         viewPager.setAdapter(pagerAdapter);
     }
 

@@ -1,22 +1,16 @@
-package com.tistory.qlyh8.emarket.adapter;
+package com.tistory.qlyh8.emarket.usePattern;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.tistory.qlyh8.emarket.status.EnrollStatusActivity;
-import com.tistory.qlyh8.emarket.status.TradeStatusActivity;
-import com.tistory.qlyh8.emarket.usePattern.UsePattern1Activity;
-import com.tistory.qlyh8.emarket.usePattern.UsePattern2Activity;
-import com.tistory.qlyh8.emarket.usePattern.UsePattern3Activity;
-
-public class TabAdapterUsePattern extends FragmentStatePagerAdapter {
+public class UsePatternTabAdapter extends FragmentStatePagerAdapter {
 
     private int tabCount;
     private String patternType;
 
-    public TabAdapterUsePattern(FragmentManager fm, int tabCount, String patternType) {
+    public UsePatternTabAdapter(FragmentManager fm, int tabCount, String patternType) {
         super(fm);
         this.tabCount = tabCount;
         this.patternType = patternType;

@@ -15,6 +15,7 @@ import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 
+//유저 유형(프로슈머/컨슈머) 선택, 유형정보를 DB에 저장
 public class InitialTypeActivity extends AppCompatActivity {
 
     ImageView prosumer, consumer;

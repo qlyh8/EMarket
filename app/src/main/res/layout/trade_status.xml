@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:id="@+id/trade_status_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_prev_white"
+            android:paddingLeft="10dp"
+            android:clickable="true"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingRight="32dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_24"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" MARKET"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="매칭현황"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/customGray"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            android:id="@+id/trade_status_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="홍길동 프로슈머"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_powerTrade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100KWh 이하"
+            android:textSize="16sp"
+            android:textColor="@color/secondaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/customGray"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추천 거래량"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_powerRecommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50KWh 이하"
+            android:textSize="16sp"
+            android:textColor="@color/secondaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/customGray"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="예상 절약금액"
+            android:textSize="16sp"
+            android:textColor="@color/primaryText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_saveMoney"
+            android:text="2,000원"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            android:gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="50dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="거래 신청 현황"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/customGray"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="6dp"
+        >
+        <TextView
+            android:id="@+id/trade_status_stage1_1"
+            android:layout_width="wrap_content"
+            android:text="요청전송"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="▶"
+            android:textSize="20sp"
+            android:textColor="@color/secondaryText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_stage1_2"
+            android:layout_width="wrap_content"
+            android:text="거래검토중"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="▶"
+            android:textSize="20sp"
+            android:textColor="@color/secondaryText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_stage1_3"
+            android:layout_width="wrap_content"
+            android:text="수락완료"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/ld_side_margin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="한전 신청 현황"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/primaryText"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="@dimen/ld_side_margin"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/customGray"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="6dp"
+        >
+        <TextView
+            android:id="@+id/trade_status_stage2_1"
+            android:layout_width="wrap_content"
+            android:text="신청접수"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ld_side_margin"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="▶"
+            android:textSize="20sp"
+            android:textColor="@color/secondaryText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_stage2_2"
+            android:layout_width="wrap_content"
+            android:text="거래검토중"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="▶"
+            android:textSize="20sp"
+            android:textColor="@color/secondaryText"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/trade_status_stage2_3"
+            android:layout_width="wrap_content"
+            android:text="승인완료"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/ld_side_margin" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -8,14 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.tistory.qlyh8.emarket.DataManager.UseMonthExcelFile;
+import com.tistory.qlyh8.emarket.dataManager.UseMonthExcelFile;
 import com.tistory.qlyh8.emarket.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import lecho.lib.hellocharts.gesture.ZoomType;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
@@ -23,8 +22,6 @@ import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.ColumnChartView;
-
-import static android.R.attr.numColumns;
 
 public class UsePattern3Activity extends Fragment {
 

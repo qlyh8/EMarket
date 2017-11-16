@@ -39,6 +39,7 @@ import com.tistory.qlyh8.emarket.initialize.InitialPowerNumberActivity;
 
 import java.util.concurrent.TimeUnit;
 
+//핸드폰 인증 (핸드폰정보를 DB에 저장)
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -65,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
             //다른 액티비티로 넘어가기
             //Toast.makeText(this, mAuth.getCurrentUser().getPhoneNumber(), Toast.LENGTH_SHORT).show();
             Toast.makeText(this, "로그인되었습니다.", Toast.LENGTH_SHORT).show();
-            //startActivity(new Intent(this, MainActivity.class));
-            //finish();
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
 
         loginBtn = (Button)findViewById(R.id.login_send_auth_btn);
@@ -169,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 }
 
+//구글로그인
 /*public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private static final int RC_SIGN_IN = 9001;

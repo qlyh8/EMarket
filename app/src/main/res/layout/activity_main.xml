@@ -31,8 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/customButton"
         android:orientation="vertical">
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2">
@@ -46,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-        </LinearLayout>
+        </LinearLayout>-->
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +83,7 @@
             android:drawableTop="@drawable/ic_main_2"
             />
         <Button
-            android:id="@+id/main_year"
+            android:id="@+id/main_status_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="매칭현황"
@@ -95,6 +96,7 @@
             android:drawableTop="@drawable/ic_main_3"
             />
         <Button
+            android:id="@+id/main_report_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"

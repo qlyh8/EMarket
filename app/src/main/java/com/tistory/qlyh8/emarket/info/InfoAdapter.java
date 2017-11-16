@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket.adapter;
+package com.tistory.qlyh8.emarket.info;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,17 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.tistory.qlyh8.emarket.LoginActivity;
-import com.tistory.qlyh8.emarket.MainActivity;
-import com.tistory.qlyh8.emarket.initialize.PhoneNumberAuthentication;
 import com.tistory.qlyh8.emarket.R;
-import com.tistory.qlyh8.emarket.firebase.GetAuth;
-import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
-
+//안내 어댑터
 public class InfoAdapter extends PagerAdapter {
 
     private Context context;

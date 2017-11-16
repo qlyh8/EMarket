@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket.adapter;
+package com.tistory.qlyh8.emarket.notUsed;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +12,7 @@ import com.tistory.qlyh8.emarket.R;
 
 import java.util.List;
 
-
+//샘플 리스트 어댑터
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private Context context;

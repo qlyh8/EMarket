@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket;
+package com.tistory.qlyh8.emarket.info;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,11 +6,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.tistory.qlyh8.emarket.adapter.InfoAdapter;
+import com.tistory.qlyh8.emarket.R;
+import com.tistory.qlyh8.emarket.info.InfoAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
+//안내 껍데기
 public class InfoActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
@@ -21,7 +20,7 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.info_main);
 
         init();
     }

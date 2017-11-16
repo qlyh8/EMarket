@@ -31,4 +31,9 @@
     <color name="customGray">#EAEAEA</color>
     <color name="customDarkGray">#B0B0B0</color>
     <color name="customDarkGreen">#3B4850</color>
+    <color name="customProsumer">#4BD2D6</color>
+    <color name="customConsumer">#F9C23E</color>
+
+    <color name="primaryText">#212121</color>
+    <color name="secondaryText">#727272</color>
 </resources>

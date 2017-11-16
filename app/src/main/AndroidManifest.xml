@@ -23,19 +23,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".InfoActivity"/>
+        <activity android:name=".info.InfoActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".ProfileActivity"/>
-        <activity android:name=".ListActivity"/>
-        <activity android:name=".status.YearViewActivity"/>
-        <activity android:name=".status.EnrollFormActivity"/>
         <activity android:name=".usePattern.UsePatternViewActivity"/>
-        <activity android:name=".DataManager.UseMonthExcelFile"/>
-        <activity android:name=".DataManager.LoadExcelFiles"/>
-        <activity android:name=".initialize.PhoneNumberAuthentication"/>
+        <activity android:name=".dataManager.UseMonthExcelFile"/>
+        <activity android:name=".dataManager.LoadExcelFiles"/>
         <activity android:name=".initialize.InitialPowerNumberActivity"/>
         <activity android:name=".initialize.InitialTypeActivity"/>
-        <activity android:name=".TradeListActivity"/>
+        <activity android:name=".trade.TradeMainActivity"/>
+        <activity android:name=".trade.TradeStatusActivity"/>
     </application>
 
 </manifest>

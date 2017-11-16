@@ -5,13 +5,12 @@ import android.os.Handler;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.tistory.qlyh8.emarket.firebase.GetAuth;
+import com.tistory.qlyh8.emarket.info.InfoActivity;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
-import java.util.Map;
-
+//첫 애니메이션 화면
 public class SplashActivity extends AwesomeSplash {
 
     private final int duration = 1200;
@@ -43,8 +42,8 @@ public class SplashActivity extends AwesomeSplash {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user != null) {
-                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), InfoActivity.class));
                     finish();
                 }
                 else{

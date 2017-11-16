@@ -4,6 +4,7 @@ package com.tistory.qlyh8.emarket.firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+//DB 참조
 public class GetDB {
 
     public static FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();

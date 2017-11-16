@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket.initialize;
+package com.tistory.qlyh8.emarket.notUsed;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +19,11 @@ import com.tistory.qlyh8.emarket.MainActivity;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
+import com.tistory.qlyh8.emarket.initialize.InitialPowerNumberActivity;
 
 import java.util.Arrays;
 
+//영문 핸드폰 인증
 public class PhoneNumberAuthentication extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 123;
