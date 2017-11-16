@@ -35,10 +35,10 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
     double latitude = 0;
     double longitude = 0;
 
-    Calendar calendar = Calendar.getInstance();
-    int initialYear = calendar.get(Calendar.YEAR);
-    int initialMonth = calendar.get(Calendar.MONTH)+1;
-    int initialDay = calendar.get(Calendar.DAY_OF_MONTH);
+    //Calendar calendar = Calendar.getInstance();
+    //int initialYear = calendar.get(Calendar.YEAR);
+    //int initialMonth = calendar.get(Calendar.MONTH)+1;
+    //int initialDay = calendar.get(Calendar.DAY_OF_MONTH);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,8 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(User.class);
-                insertData(address, initialDay, initialMonth, initialYear, latitude, longitude, userData.getPhone(), powerNum, 0, 0, "", "홍길동");
+                insertData1(address, 0, latitude, longitude, "", 0, 0, 0, "홍길동");
+                insertData2(25, 1, "1-10");
             }
 
             @Override
@@ -120,8 +121,20 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
     }
 
     //객체 sample를 그대로 넣어주면 파이어베이스에 sample의 멤버 변수들이 등록
-    public void insertData(String address, int initialDay, int initialMonth, int initialYear, double latitude, double longitude, String phone, String powerNumber, int powerTrade, int powerUsed, String type, String username) {
-        User setUserData = new User(address, initialDay, initialMonth, initialYear, latitude, longitude, phone, powerNumber, powerTrade, powerUsed, type, username);
+    public void insertData1(String address, int addressNumber, double latitude, double longitude, String powerNumber, int powerProvide, int powerTrade, int powerUse, String username) {
+        User setUserData = new User(address, addressNumber, latitude, longitude, powerNumber, powerProvide, powerTrade, powerUse, username);
+        GetDB.mDatabaseReference.child("user")
+                .child(GetAuth.getUserId())
+                .setValue(setUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                //Toast.makeText(getApplicationContext(),"등록이 완료되었습니다.",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void insertData2(int dueDate, int meterReadDate, String possibleTradeDate) {
+        User setUserData = new User(dueDate, meterReadDate, possibleTradeDate);
         GetDB.mDatabaseReference.child("user")
                 .child(GetAuth.getUserId())
                 .setValue(setUserData).addOnSuccessListener(new OnSuccessListener<Void>() {

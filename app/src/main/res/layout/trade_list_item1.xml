@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:weightSum="4"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/trade_prosumer"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:weightSum="2"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/trade_list_item1_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="에디슨님"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/material_red_200"
+            android:gravity="center|bottom"
+            />
+        <TextView
+            android:id="@+id/trade_list_item1_power_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="100KWh 이하"
+            android:textSize="13sp"
+            android:textColor="#757575"
+            android:paddingTop="5dp"
+            android:gravity="center|top"
+            />
+    </LinearLayout>
+
+    </LinearLayout>
+
+<!--<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:background="#FFF"
@@ -50,7 +105,7 @@
             android:textColor="#757575"
             android:paddingTop="5dp"
             />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <!--<LinearLayout
         android:layout_width="0dp"
@@ -67,4 +122,4 @@
         android:textStyle="bold"
         android:background="#73685A"/>
     </LinearLayout>-->
-</LinearLayout>
+<!--</LinearLayout>-->

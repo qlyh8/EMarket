@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
+import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 import com.tistory.qlyh8.emarket.trade.TradeMainActivity;
 import com.tistory.qlyh8.emarket.trade.TradeStatusActivity;
 import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
@@ -45,12 +47,22 @@ public class MainActivity extends AppCompatActivity {
         }
         Toast.makeText(getApplicationContext(), "name:"+name+"\nemail:"+email+"\nverf:"+emailVerified+"\nuid:"+uid+"\nphone"+phone, Toast.LENGTH_LONG).show();
         */
-       /* GetDB.mUserRef.child("testProsumer3_uid").child("phone").setValue("+821033333333");
-        GetDB.mUserRef.child("testProsumer3_uid").child("type").setValue("prosumer");
-        GetDB.mUserRef.child("testProsumer3_uid").child("address").setValue("");
-        GetDB.mUserRef.child("testProsumer3_uid").child("powerNumber").setValue("");
-        GetDB.mUserRef.child("testProsumer3_uid").child("powerTrade").setValue("300");
-        GetDB.mUserRef.child("testProsumer3_uid").child("username").setValue("성시경");*/
+        /*String uid1 = "testProsumer_uid";
+        GetDB.mUserRef.child(uid1).child("username").setValue("에디슨");        //
+        GetDB.mUserRef.child(uid1).child("address").setValue("노원구");            //
+        GetDB.mUserRef.child(uid1).child("addressNumber").setValue(1);            //
+        GetDB.mUserRef.child(uid1).child("powerTrade").setValue(182);              //
+
+        GetDB.mUserRef.child(uid1).child("powerUse").setValue(0);
+        GetDB.mUserRef.child(uid1).child("phone").setValue("");
+        GetDB.mUserRef.child(uid1).child("type").setValue("prosumer");
+        GetDB.mUserRef.child(uid1).child("powerNumber").setValue("");
+        GetDB.mUserRef.child(uid1).child("meterReadDate").setValue(1);
+        GetDB.mUserRef.child(uid1).child("dueDate").setValue(25);
+        GetDB.mUserRef.child(uid1).child("possibleTradeDate").setValue("1-10");
+        GetDB.mUserRef.child(uid1).child("latitude").setValue(0);
+        GetDB.mUserRef.child(uid1).child("longitude").setValue(0);*/
+
        /* GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("name").setValue("testProsumer3");
         GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("ok").setValue("Y");
         GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("providePower").setValue("100");
@@ -104,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
         //유저 유형 가져오기
         GetType.isType();
+        //유저 DB 가져오기
+        GetUserDB.getThisUserDB();
 
         //자가진단
         goUsePatternBtn = (Button)findViewById(R.id.main_use_pattern_btn);

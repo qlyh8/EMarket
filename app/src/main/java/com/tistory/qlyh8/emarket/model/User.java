@@ -7,29 +7,33 @@ public class User {
     /*
         user
             ㄴTsfgwslfdrgfklsgwle(user uid)
-                ㄴ address: ""
-                ㄴ initialDay: ""
-                ㄴ initialMonth: ""
-                ㄴ initialYear: ""
-                ㄴ latitude: ""
-                ㄴ longitude: ""
-                ㄴ phone: ""
-                ㄴ powerNumber: ""
-                ㄴ powerTrade: ""
-                ㄴ powerUsed: ""
-                ㄴ type: ""
-                ㄴ username: ""
+                ㄴ address: ""                   주소
+                ㄴ addressNumber:                주소번호
+                ㄴ dueDate:                      요금납기일
+                ㄴ latitude:                     위도
+                ㄴ longitude:                    경도
+                ㄴ meterReadDate:                검침일
+                ㄴ phone: ""                     핸드폰번호
+                ㄴ possibleTradeDate: ""         거래가능일
+                ㄴ powerNumber: ""               전력량계번호
+                ㄴ powerProvide: ""              한전수전량
+                ㄴ powerTrade:                   추천거래량
+                ㄴ powerUse:                     누적사용량
+                ㄴ type: ""                      유형(프로슈머/컨슈머)
+                ㄴ username: ""                  이름
      */
     public String address;
-    public int initialDay;
-    public int initialMonth;
-    public int initialYear;
+    public int addressNumber;
+    public int dueDate;
     public double latitude;
     public double longitude;
+    public int meterReadDate;
     public String phone;
+    public String possibleTradeDate;
     public String powerNumber;
+    public int powerProvide;
     public int powerTrade;
-    public int powerUsed;
+    public int powerUse;
     public String type;
     public String username;
 
@@ -37,17 +41,45 @@ public class User {
     public User(){
     }
 
-    public User(String address, int initialDay, int initialMonth, int initialYear, double latitude, double longitude, String phone, String powerNumber, int powerTrade, int powerUsed, String type, String username) {
+    public User(int dueDate, int meterReadDate, String possibleTradeDate) {
+        this.dueDate = dueDate;
+        this.meterReadDate = meterReadDate;
+        this.possibleTradeDate = possibleTradeDate;
+    }
+
+    public User(String address, int addressNumber, double latitude, double longitude, String powerNumber, int powerProvide, int powerTrade, int powerUse, String username) {
         this.address = address;
-        this.initialDay = initialDay;
-        this.initialMonth = initialMonth;
-        this.initialYear = initialYear;
+        this.addressNumber = addressNumber;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.powerNumber = powerNumber;
+        this.powerProvide = powerProvide;
+        this.powerTrade = powerTrade;
+        this.powerUse = powerUse;
+        this.username = username;
+    }
+
+    public User(int addressNumber, double latitude, double longitude, int powerTrade, String type, String username) {
+        this.addressNumber = addressNumber;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.powerTrade = powerTrade;
+        this.type = type;
+        this.username = username;
+    }
+
+    public User(String address, int addressNumber, int dueDate, double latitude, double longitude, int meterReadDate, String phone, String possibleTradeDate, String powerNumber, int powerTrade, int powerUse, String type, String username) {
+        this.address = address;
+        this.addressNumber = addressNumber;
+        this.dueDate = dueDate;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.meterReadDate = meterReadDate;
         this.phone = phone;
+        this.possibleTradeDate = possibleTradeDate;
         this.powerNumber = powerNumber;
         this.powerTrade = powerTrade;
-        this.powerUsed = powerUsed;
+        this.powerUse = powerUse;
         this.type = type;
         this.username = username;
     }
@@ -60,28 +92,20 @@ public class User {
         this.address = address;
     }
 
-    public int getInitialDay() {
-        return initialDay;
+    public int getAddressNumber() {
+        return addressNumber;
     }
 
-    public void setInitialDay(int initialDay) {
-        this.initialDay = initialDay;
+    public void setAddressNumber(int addressNumber) {
+        this.addressNumber = addressNumber;
     }
 
-    public int getInitialMonth() {
-        return initialMonth;
+    public int getDueDate() {
+        return dueDate;
     }
 
-    public void setInitialMonth(int initialMonth) {
-        this.initialMonth = initialMonth;
-    }
-
-    public int getInitialYear() {
-        return initialYear;
-    }
-
-    public void setInitialYear(int initialYear) {
-        this.initialYear = initialYear;
+    public void setDueDate(int dueDate) {
+        this.dueDate = dueDate;
     }
 
     public double getLatitude() {
@@ -100,12 +124,28 @@ public class User {
         this.longitude = longitude;
     }
 
+    public int getMeterReadDate() {
+        return meterReadDate;
+    }
+
+    public void setMeterReadDate(int meterReadDate) {
+        this.meterReadDate = meterReadDate;
+    }
+
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getPossibleTradeDate() {
+        return possibleTradeDate;
+    }
+
+    public void setPossibleTradeDate(String possibleTradeDate) {
+        this.possibleTradeDate = possibleTradeDate;
     }
 
     public String getPowerNumber() {
@@ -116,6 +156,14 @@ public class User {
         this.powerNumber = powerNumber;
     }
 
+    public int getPowerProvide() {
+        return powerProvide;
+    }
+
+    public void setPowerProvide(int powerProvide) {
+        this.powerProvide = powerProvide;
+    }
+
     public int getPowerTrade() {
         return powerTrade;
     }
@@ -124,12 +172,12 @@ public class User {
         this.powerTrade = powerTrade;
     }
 
-    public int getPowerUsed() {
-        return powerUsed;
+    public int getPowerUse() {
+        return powerUse;
     }
 
-    public void setPowerUsed(int powerUsed) {
-        this.powerUsed = powerUsed;
+    public void setPowerUse(int powerUse) {
+        this.powerUse = powerUse;
     }
 
     public String getType() {
