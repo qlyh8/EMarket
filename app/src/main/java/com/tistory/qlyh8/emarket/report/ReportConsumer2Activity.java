@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 
 import com.tistory.qlyh8.emarket.R;
 
-public class Report1Activity extends Fragment {
-
-   /* private String patternType;
+//리포트 프로슈머 거래이력
+public class ReportConsumer2Activity extends Fragment {
 
     View view;
 
@@ -19,9 +18,8 @@ public class Report1Activity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        patternType = getArguments().getString("patternType");
-        view = inflater.inflate(R.layout.use_pattern_item1, container, false);
+        view = inflater.inflate(R.layout.report_item_consumer2, container, false);
 
         return view;
-    }*/
+    }
 }

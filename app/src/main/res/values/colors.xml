@@ -27,16 +27,33 @@
     <color name="material_red_a400">#FF1744</color>
     <color name="material_red_a700">#D50000</color>
 
+    <color name="material_yellow_500">#FFEB3B</color>
+
     <color name="customButton">#2E3339</color>
     <color name="customGray">#EAEAEA</color>
     <color name="customDarkGray">#B0B0B0</color>
     <color name="customDarkGreen">#3B4850</color>
     <color name="customProsumer">#4BD2D6</color>
     <color name="customConsumer">#F9C23E</color>
+    <color name="customDarkBlack">#57585B</color>
 
     <color name="primaryText">#212121</color>
     <color name="secondaryText">#727272</color>
 
     <color name="tradeButton1">#FF8000</color>
     <color name="tradeButton2">#2080D0</color>
+    
+    <color name="lavander">#9379D8</color>
+    <color name="lavanderDark">#9379D8</color>
+    <color name="lavanderDeepDark">#9379D8</color>
+    <color name="bitterSweet">#F66C50</color>
+    <color name="bitterSweetDark">#E4553D</color>
+    <color name="bitterSweetDeepDark">#AB402E</color>
+    <color name="blueJeans">#5391E0</color>
+    <color name="blueJeansDark">#4887DB</color>
+    <color name="blueJeansDeepDark">#3665A4</color>
+    <color name="mint">#47CBAB</color>
+    <color name="mintDark">#34B898</color>
+    <color name="mintDeepDark">#278A72</color>
+
 </resources>

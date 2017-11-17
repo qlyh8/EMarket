@@ -2,6 +2,7 @@ package com.tistory.qlyh8.emarket.firebase;
 
 import android.util.Log;
 
+//매칭유저 정보 및 예상절약금액 가져오기
 public class GetMatchUser {
 
     public static String matchingUserUid = "";
@@ -55,15 +56,15 @@ public class GetMatchUser {
                 //Log.d("qwe", String.valueOf(tradeTotalSumMoney));
             }
             else if ((201 <= powerProvide) && (powerProvide <= 400)) {
-                if(powerProvide >= powerTrade){
 
-                }
                 //기본요금: 1600원, 전력량요금: 187.9원
                 baseMoney = 1600;
+                GetMatchUser.userSaveMoney = Double.valueOf(0);
             }
             else{
                 //기본요금: 7,300원, 전력량요금: 280.6원
                 baseMoney = 7300;
+                GetMatchUser.userSaveMoney = Double.valueOf(0);
             }
         }
         else{

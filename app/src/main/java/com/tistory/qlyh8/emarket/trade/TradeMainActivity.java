@@ -37,7 +37,7 @@ import java.util.List;
 //거래하기
 public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private LoadingActivity loading;
+    private LoadingActivity loading, loading2;
     Runnable runnable;
     Handler handler;
 
@@ -85,6 +85,8 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
 
     private void init() {
 
+        loading2 = new LoadingActivity(this);
+
         recyclerlist = (RecyclerView)findViewById(R.id.trade_list);
         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         //linearLayoutManager.setReverseLayout(false);
@@ -95,6 +97,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
         nameData = new ArrayList<>();
         powerData = new ArrayList<>();
 
+        loading2.show();
         GetDB.mUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
             int count = 0;
             @Override
@@ -117,6 +120,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
                 else {
                     recyclerlist.setAdapter(tradeListAdapter1);
                 }
+                loading2.dismiss();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -236,6 +240,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
                                     GetMatchUser.matchingUserType = userData.getType();
                                     GetMatchUser.matchingUserPowerTrade = userData.getPowerTrade();
                                     GetMatchUser.calculateUserSaveMoney(userData.getPowerTrade());
+                                    GetDB.mUserRef.child(GetAuth.getUserId()).child("matching").child("username").setValue(userData.getUsername());
                                     //Toast.makeText(getApplicationContext(), ""+userData.getUsername(), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -249,6 +254,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
                                     GetMatchUser.matchingUserType = userData.getType();
                                     GetMatchUser.matchingUserPowerTrade = userData.getPowerTrade();
                                     GetMatchUser.calculateUserSaveMoney(userData.getPowerTrade());
+                                    GetDB.mUserRef.child(GetAuth.getUserId()).child("matching").child("username").setValue(userData.getUsername());
                                     //Toast.makeText(getApplicationContext(), ""+userData.getUsername(), Toast.LENGTH_SHORT).show();
                                 }
                             }

@@ -15,11 +15,11 @@ import com.tistory.qlyh8.emarket.R;
 
 import java.util.Calendar;
 
-//자가진단 큰틀
+//리포트 큰틀
 public class ReportViewActivity extends AppCompatActivity {
-    /*private TabLayout tabLayout;
+    private TabLayout tabLayout;
     private ViewPager viewPager;
-    private UsePatternTabAdapter pagerAdapter;
+    private ReportTabAdapter pagerAdapter;
 
     private ImageView goMainBtn;
     private TextView viewTypeText;
@@ -28,9 +28,9 @@ public class ReportViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.use_pattern_view);
+        setContentView(R.layout.report_view);
 
-        goMainBtn = (ImageView)findViewById(R.id.use_pattern_view_prev);
+        goMainBtn = (ImageView)findViewById(R.id.report_view_prev);
         goMainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,18 +41,18 @@ public class ReportViewActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         dataMonth = calendar.get(Calendar.MONTH);
 
-        viewTypeText = (TextView)findViewById(R.id.use_pattern_view_text);
-        viewTypeText.setText(dataMonth + "월 사용량 자가진단");
+        viewTypeText = (TextView)findViewById(R.id.report_view_text);
+        viewTypeText.setText(dataMonth + "월 청구서");
 
-        tabLayout = (TabLayout)findViewById(R.id.use_pattern_tab_layout);
+        tabLayout = (TabLayout)findViewById(R.id.report_tab_layout);
         tabLayout.addTab(tabLayout.newTab());
         tabLayout.addTab(tabLayout.newTab());
         //tabLayout.addTab(tabLayout.newTab());
 
-        viewPager = (ViewPager)findViewById(R.id.use_pattern_view_pager);
+        viewPager = (ViewPager)findViewById(R.id.report_view_pager);
 
         // Creating TabPagerAdapter adapter
-        pagerAdapter = new UsePatternTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), dataMonth);
+        pagerAdapter = new ReportTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), dataMonth);
         viewPager.setAdapter(pagerAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -65,10 +65,10 @@ public class ReportViewActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
                 if(tab.getPosition() == 0){
-                    viewTypeText.setText(dataMonth + "월 사용량 자가진단");
+                    viewTypeText.setText(dataMonth + "월 청구서");
                 }
                 if(tab.getPosition() == 1){
-                    viewTypeText.setText(dataMonth + "월 추천거래량 자가진단");
+                    viewTypeText.setText("거래 이력");
                 }
             }
 
@@ -83,7 +83,7 @@ public class ReportViewActivity extends AppCompatActivity {
             }
         });
 
-    }*/
+    }
 
 
     /*private void yearTextSet(){
@@ -92,13 +92,13 @@ public class ReportViewActivity extends AppCompatActivity {
 
     /*private void pagerRefresh(){
         yearTextSet();
-        pagerAdapter = new UsePatternTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
+        pagerAdapter = new ReportTabAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), viewTypeData);
         viewPager.setAdapter(pagerAdapter);
     }*/
 
-    /*public void goHome(View v){
+    public void goHome(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }*/
+    }
 }

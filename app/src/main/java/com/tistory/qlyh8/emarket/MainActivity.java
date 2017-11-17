@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
 import com.tistory.qlyh8.emarket.firebase.GetUserDB;
+import com.tistory.qlyh8.emarket.report.ReportViewActivity;
 import com.tistory.qlyh8.emarket.trade.TradeMainActivity;
 import com.tistory.qlyh8.emarket.trade.TradeStatusActivity;
 import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         GetDB.mUserRef.child(uid1).child("possibleTradeDate").setValue("1-10");
         GetDB.mUserRef.child(uid1).child("latitude").setValue(0);
         GetDB.mUserRef.child(uid1).child("longitude").setValue(0);*/
+
+        //GetDB.mUserRef.child(GetAuth.getUserId()).child("matching").child("username").setValue("에디슨");
 
        /* GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("name").setValue("testProsumer3");
         GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("ok").setValue("Y");
@@ -152,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         goReportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getBaseContext(), "clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ReportViewActivity.class));
             }
         });
 

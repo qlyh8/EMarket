@@ -50,8 +50,6 @@ public class TradeStatusActivity extends AppCompatActivity {
         setContentView(R.layout.trade_status);
 
         goPrevImg = (ImageView)findViewById(R.id.trade_status_prev);
-
-
         /*stage1_1 = (TextView)findViewById(R.id.trade_status_stage1_1);
         stage1_2 = (TextView)findViewById(R.id.trade_status_stage1_2);
         stage1_3 = (TextView)findViewById(R.id.trade_status_stage1_3);
@@ -75,30 +73,21 @@ public class TradeStatusActivity extends AppCompatActivity {
             int thisYear = calendar.get(Calendar.YEAR);
             int thisMonth = calendar.get(Calendar.MONTH)+1;
 
-            //int count = 0;
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
-
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    Log.d("qwe",snapshot.getKey());
+
                     String[] data = snapshot.getKey().split("@@");  //2017@@11@11@@prosumerUid@@consumerUid@@
                     int state = snapshot.child("state").getValue(Integer.class);
-
-
-
 
                     if(GetType.userType.equals("prosumer") && data.length == 5){
                         if(data[0].equals(thisYear+"") && data[1].equals(thisMonth+"") && data[3].equals(GetAuth.getUserId())){
                             userDataInit(data, state);
-                            //res.add(0);
                         }
                     }
                     if(GetType.userType.equals("consumer") && data.length == 5){
                         if(data[0].equals(thisYear+"") && data[1].equals(thisMonth+"") && data[4].equals(GetAuth.getUserId())){
-                            Log.d("qwe","1111111");
                             userDataInit(data, state);
                             //calculateUserSaveMoney(userData.getPowerTrade());
                         }
@@ -112,7 +101,6 @@ public class TradeStatusActivity extends AppCompatActivity {
         });
 
         //Toast.makeText(getApplicationContext(), ""+count, Toast.LENGTH_SHORT).show();
-
         /*res.add(0);
         res.add(0);*/
 
@@ -178,7 +166,7 @@ public class TradeStatusActivity extends AppCompatActivity {
     }
 
     private void userDataInit(String[] data, final int state){
-        Log.d("qwe","????????");
+
         if(GetType.userType.equals("prosumer")){
             GetDB.mUserRef.child(data[3]).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -186,7 +174,9 @@ public class TradeStatusActivity extends AppCompatActivity {
                     User user = dataSnapshot.getValue(User.class);
                     GetMatchUser.calculateUserSaveMoney(user.getPowerTrade());
                     String []temp = new String[4];
-                    temp[0] = user.getUsername() + " 컨슈머";
+                    //temp[0] = user.getUsername() + " 컨슈머";
+                    //temp[0] = GetMatchUser.matchingUserName + " 컨슈머";
+                    temp[0] =  dataSnapshot.child("matching").child("username").getValue() + " 컨슈머";
                     temp[1] = String.valueOf(GetUserDB.thisUserDB.getPowerTrade()) + "KWh";
                     temp[2] = (String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0])  + "원";
                     temp[3] = String.valueOf(state);
@@ -205,12 +195,12 @@ public class TradeStatusActivity extends AppCompatActivity {
             GetDB.mUserRef.child(data[4]).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Log.d("qwe","?ddddddd");
-                    User user = dataSnapshot.getValue(User.class);
 
+                    User user = dataSnapshot.getValue(User.class);
                     GetMatchUser.calculateUserSaveMoney(user.getPowerTrade());
                     String []temp = new String[4];
-                    temp[0] = GetMatchUser.matchingUserName + " 프로슈머";
+                    //temp[0] = GetMatchUser.matchingUserName + " 프로슈머";
+                    temp[0] =  dataSnapshot.child("matching").child("username").getValue() + " 프로슈머";
                     temp[1] = String.valueOf(GetUserDB.thisUserDB.getPowerTrade()) + "KWh";
                     temp[2] = (String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0]) + "원";
                     temp[3] = String.valueOf(state);

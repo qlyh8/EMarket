@@ -33,6 +33,7 @@
         <activity android:name=".initialize.InitialTypeActivity"/>
         <activity android:name=".trade.TradeMainActivity"/>
         <activity android:name=".trade.TradeStatusActivity"/>
+        <activity android:name=".report.ReportViewActivity"/>
     </application>
 
 </manifest>

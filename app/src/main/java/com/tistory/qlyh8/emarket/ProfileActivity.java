@@ -24,6 +24,8 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView typeImg;
     private TextView typeText, phoneText, addressText, powerNumberText;
 
+    private LoadingActivity loading;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +43,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void initProfile(){
 
+        loading = new LoadingActivity(this);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
             // User is signed in
+            loading.show();
             GetDB.mUserRef.child(GetAuth.getUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -64,6 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
                     phoneText.setText(dataSnapshot.child("phone").getValue().toString());
                     addressText.setText(dataSnapshot.child("address").getValue().toString());
                     powerNumberText.setText(dataSnapshot.child("powerNumber").getValue().toString());
+                    loading.dismiss();
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {

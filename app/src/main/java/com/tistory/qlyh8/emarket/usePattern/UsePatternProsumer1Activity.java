@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.components.AxisBase;
@@ -21,37 +22,61 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
-import com.tistory.qlyh8.emarket.dataManager.UseMonthExcelFile;
 import com.tistory.qlyh8.emarket.R;
+import com.tistory.qlyh8.emarket.firebase.GetUserDB;
+import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Calendar;
 import java.util.Random;
 
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.Column;
-import lecho.lib.hellocharts.model.ColumnChartData;
-import lecho.lib.hellocharts.model.SubcolumnValue;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.view.ColumnChartView;
-
-public class UsePattern3Activity extends Fragment {
+//프로슈머 월 사용량
+public class UsePatternProsumer1Activity extends Fragment {
 
     private com.github.mikephil.charting.charts.LineChart mChart;
+
+    View view;
+    int dataMonth;
+    int powerProvide;
+
+    TextView titleMonth ,titlePower;
+    TextView baseMoney, powerMoney, basePowerMoney, etcMoney1, etcMoney2, totalMoney;
+
+    LovelyInfoDialog infoDialog;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.use_pattern_item3, container, false);
+        view = inflater.inflate(R.layout.use_pattern_item_prosumer1, container, false);
+
+        titleMonth = view.findViewById(R.id.use_pattern_item2_title_month);
+        titlePower = view.findViewById(R.id.use_pattern_item2_title_power_use);
+        baseMoney = view.findViewById(R.id.use_pattern_item2_base_money);
+        powerMoney = view.findViewById(R.id.use_pattern_item2_power_money);
+        basePowerMoney = view.findViewById(R.id.use_pattern_item2_base_power_money);
+        etcMoney1 = view.findViewById(R.id.use_pattern_item2_etc1_money);
+        etcMoney2 = view.findViewById(R.id.use_pattern_item2_etc2_money);
+        totalMoney = view.findViewById(R.id.use_pattern_item2_total_money);
+
         chartInit(view);
+        setTextMoney();
+
+        GetUserDB.getThisUserDB();
+        if(GetUserDB.thisUserDB.getPowerProvide() > 200){
+            infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                    .setIcon(R.drawable.info_dialog)
+                    .setTitle("추천거래량이 없습니다.")
+                    .setMessage("수급량이 200KWh 이하일 때" + "\n거래가 가능합니다.")
+                    .setConfirmButtonText("확인")
+                    .show();
+        }
+
         return view;
     }
 
     private void chartInit(View view){
-        mChart = (com.github.mikephil.charting.charts.LineChart) view.findViewById(R.id.lineChart);
+        mChart = view.findViewById(R.id.lineChart);
         mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
@@ -68,7 +93,7 @@ public class UsePattern3Activity extends Fragment {
         mChart.setTouchEnabled(true);
         mChart.setDragEnabled(true);
         mChart.setScaleEnabled(true);
-        mChart.setMaxVisibleValueCount(200);
+        mChart.setMaxVisibleValueCount(1000);
         mChart.setDrawGridBackground(false);
         mChart.setHighlightPerDragEnabled(true);
         mChart.setPinchZoom(true);
@@ -174,16 +199,16 @@ public class UsePattern3Activity extends Fragment {
 
         set2 = new LineDataSet(yVals2, "사용량");
         set2.setAxisDependency(YAxis.AxisDependency.LEFT);
-        set2.setColor(ContextCompat.getColor(getContext(), R.color.material_lime_a700));
-        set2.setCircleColor(ContextCompat.getColor(getContext(), R.color.material_lime_a700)); // 두번째 데이터 동그라미 색
+        set2.setColor(ContextCompat.getColor(getContext(), R.color.material_yellow_500));
+        set2.setCircleColor(ContextCompat.getColor(getContext(), R.color.material_yellow_500)); // 두번째 데이터 동그라미 색
         set2.setLineWidth(3f);
         set2.setCircleRadius(3f);
         set2.setFillAlpha(100);
         set2.setDrawValues(false);
 
-        set2.setFillColor(ContextCompat.getColor(getContext(), R.color.material_lime_a700));
+        set2.setFillColor(ContextCompat.getColor(getContext(), R.color.material_yellow_500));
         set2.setDrawCircleHole(false);
-        set2.setHighLightColor(ContextCompat.getColor(getContext(), R.color.material_lime_a700)); //눌렀을때 나오는 선의 색
+        set2.setHighLightColor(ContextCompat.getColor(getContext(), R.color.material_yellow_500)); //눌렀을때 나오는 선의 색
 
 
         set3 = new LineDataSet(yVals3, "발전량");
@@ -206,6 +231,24 @@ public class UsePattern3Activity extends Fragment {
         data.setValueTextSize(9f);
         mChart.setData(data);
 
+    }
+
+    private  void setTextMoney(){
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+
+        //GetPowerUsed.calculatePowerUsed();
+
+        titleMonth.setText(year + "." + month);
+        /*titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
+        baseMoney.setText(GetPowerUsed.baseMoney + "원");
+        powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
+        basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");
+        etcMoney1.setText((Double.toString(GetPowerUsed.etc1Money).split("\\.")[0])  + "원");
+        etcMoney2.setText((Double.toString(GetPowerUsed.etc2Money).split("\\.")[0]) + "원");
+        totalMoney.setText((Double.toString(GetPowerUsed.totalMoney).split("\\.")[0]));*/
     }
 
 }
