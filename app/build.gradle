@@ -38,6 +38,7 @@ dependencies {
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
     compile 'com.yarolegovich:lovely-dialog:1.0.7'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     testCompile 'junit:junit:4.12'
     compile files('libs/jxl.jar')
 }

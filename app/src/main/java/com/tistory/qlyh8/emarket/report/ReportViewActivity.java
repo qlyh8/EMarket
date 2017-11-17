@@ -1,4 +1,4 @@
-package com.tistory.qlyh8.emarket.usePattern;
+package com.tistory.qlyh8.emarket.report;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.tistory.qlyh8.emarket.R;
 import java.util.Calendar;
 
 //자가진단 큰틀
-public class UsePatternViewActivity extends AppCompatActivity {
-    private TabLayout tabLayout;
+public class ReportViewActivity extends AppCompatActivity {
+    /*private TabLayout tabLayout;
     private ViewPager viewPager;
     private UsePatternTabAdapter pagerAdapter;
 
@@ -83,7 +83,7 @@ public class UsePatternViewActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 
     /*private void yearTextSet(){
@@ -96,9 +96,9 @@ public class UsePatternViewActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
     }*/
 
-    public void goHome(View v){
+    /*public void goHome(View v){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
+    }*/
 }

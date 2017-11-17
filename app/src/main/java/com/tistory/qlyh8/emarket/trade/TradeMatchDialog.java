@@ -52,13 +52,13 @@ public class TradeMatchDialog extends Dialog {
             usernameText.setText(GetMatchUser.matchingUserName + " 컨슈머");
             powerTradeText.setText(GetMatchUser.matchingUserPowerTrade + "KWh 이상 거래량");
             powerRecommendText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 이하 전력량");
-            saveMoneyText.setText(GetMatchUser.userSaveMoney + "원");
+            saveMoneyText.setText((String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0]) + "원");
         }
         else{
             usernameText.setText(GetMatchUser.matchingUserName + " 프로슈머");
             powerTradeText.setText(GetMatchUser.matchingUserPowerTrade + "KWh 이하 거래량");
             powerRecommendText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 이상 전력량");
-            saveMoneyText.setText(GetMatchUser.userSaveMoney + "원");
+            saveMoneyText.setText((String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0]) + "원");
         }
 
         submitBtn.setOnClickListener(new View.OnClickListener() {

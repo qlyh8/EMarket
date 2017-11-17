@@ -1,5 +1,7 @@
 package com.tistory.qlyh8.emarket.firebase;
 
+import android.util.Log;
+
 public class GetMatchUser {
 
     public static String matchingUserUid = "";
@@ -29,7 +31,7 @@ public class GetMatchUser {
         //거래 후 기본요금+전력량요금
         //거래 후 청구요금 = 기본요금 + 전력량요금(거래후) + 전력산업기반기금(거래전) + 부가가치세(거래전)
         double tradePowerMoney, tradeTempSumMoney, tradeTotalSumMoney;
-
+        //Log.d("qwe", String.valueOf(powerProvide));
         if(GetType.userType.equals("prosumer")){
             //프로슈머일때
             if(powerProvide <= 200){
@@ -45,12 +47,17 @@ public class GetMatchUser {
                 beforeTotalSumMoney = tradeTemp1SumMoney + tradeTemp1SumMoney * 0.037 + tradeTemp1SumMoney * 0.1;
 
                 tradeEarnMoney = powerTrade * 187.9;
-                tradeTotalSumMoney = tradeEarnMoney - beforeTotalSumMoney;
+                tradeTotalSumMoney = beforeTotalSumMoney - tradeEarnMoney;
 
                 GetMatchUser.userTotalMoney = tradeTotalSumMoney;
-                GetMatchUser.userSaveMoney =  tradeTotalSumMoney - totalSumMoney;
+                GetMatchUser.userSaveMoney =  totalSumMoney - tradeTotalSumMoney;
+                //Log.d("qwe", String.valueOf(totalSumMoney));
+                //Log.d("qwe", String.valueOf(tradeTotalSumMoney));
             }
             else if ((201 <= powerProvide) && (powerProvide <= 400)) {
+                if(powerProvide >= powerTrade){
+
+                }
                 //기본요금: 1600원, 전력량요금: 187.9원
                 baseMoney = 1600;
             }

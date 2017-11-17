@@ -24,7 +24,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setRevealFlagX(Flags.REVEAL_LEFT);
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM);
 
-        configSplash.setLogoSplash(R.drawable.logo_128);
+        configSplash.setLogoSplash(R.drawable.logo_emarket);
         configSplash.setAnimLogoSplashDuration(duration);
 
         configSplash.setTitleSplash("내가 직접 거래하는 전기시장");

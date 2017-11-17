@@ -23,6 +23,7 @@ import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.model.User;
 
 import java.util.Calendar;
+import java.util.Random;
 
 //전력량계 번호 입력 (주소, 최초등록일, 경도, 위도, 전력량계번호, 거래추천량, 소비량, 이름이 DB에 입력)
 public class InitialPowerNumberActivity extends AppCompatActivity {
@@ -34,7 +35,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
     User userData = null;
 
     int SEARCHADDRESS = 1000;
-    String address = "";
+    String address = "주소";
     double latitude = 0;
     double longitude = 0;
 
@@ -112,7 +113,8 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(User.class);
-                insertData1(address, 0, latitude, longitude, "", 0, 0, 0, "홍길동");
+                Random r = new Random();
+                insertData1("address", 0, r.nextDouble(), r.nextDouble(), powerNum, r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), "noname");
                 insertData2(25, 1, "1-10");
                 goNextActivity();
             }
@@ -135,6 +137,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(),"등록이 완료되었습니다.",Toast.LENGTH_SHORT).show();
             }
         });
+        GetDB.mDatabaseReference.child("user").child(GetAuth.getUserId()).child("phone").setValue(GetAuth.getUserPhone());
     }
 
     public void insertData2(int dueDate, int meterReadDate, String possibleTradeDate) {
@@ -146,7 +149,5 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
         GetDB.mDatabaseReference.child("user")
                 .child(GetAuth.getUserId()).child("possibleTradeDate").setValue(possibleTradeDate);
                 //Toast.makeText(getApplicationContext(),"등록이 완료되었습니다.",Toast.LENGTH_SHORT).show();
-
-
     }
 }

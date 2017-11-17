@@ -46,7 +46,7 @@ public class TradeStautsListAdapter extends RecyclerView.Adapter<TradeStautsList
         holder.statusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mInflater.getContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mInflater.getContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
             }
         });
         holder.matchingName.setText(res.get(position)[0]);
