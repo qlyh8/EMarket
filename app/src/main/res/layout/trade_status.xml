@@ -88,26 +88,24 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:orientation="vertical"
-        android:paddingTop="30dp"
-        >
+        android:paddingTop="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:layout_marginBottom="6dp"
-            >
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="거래 신청 현황 안내"
-                android:textSize="16sp"
-                android:textAlignment="center"
-                android:textColor="@color/primaryText"
                 android:layout_marginLeft="@dimen/ld_side_margin"
                 android:layout_marginRight="@dimen/ld_side_margin"
-                />
+                android:text="거래 신청 현황 안내"
+                android:textAlignment="center"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <View
@@ -115,25 +113,26 @@
             android:layout_height="2dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@color/customDarkGray"
-            />
+            android:background="@color/customDarkGray" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="6dp"
-            >
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/trade_status_stage1_1"
                 android:layout_width="wrap_content"
-                android:text="요청전송"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/ld_side_margin"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="요청완료"
+                android:textColor="@color/tradeButton1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -141,13 +140,14 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:text="▶"
-                android:textSize="16sp"
-                android:textColor="@color/secondaryText"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="▶"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0dp"
@@ -157,11 +157,13 @@
             <TextView
                 android:id="@+id/trade_status_stage1_2"
                 android:layout_width="wrap_content"
-                android:text="거래검토중"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="요청검토"
+                android:textColor="@color/tradeButton1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -170,12 +172,12 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="▶"
-                android:textSize="16sp"
-                android:textColor="@color/secondaryText"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="▶"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0dp"
@@ -185,32 +187,32 @@
             <TextView
                 android:id="@+id/trade_status_stage1_3"
                 android:layout_width="wrap_content"
-                android:text="수락완료"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="@dimen/ld_side_margin" />
+                android:layout_marginRight="@dimen/ld_side_margin"
+                android:text="접수대기"
+                android:textColor="@color/tradeButton1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="30dp"
-            >
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="한전 신청 현황 안내"
-                android:textSize="16sp"
-                android:textAlignment="center"
-                android:textColor="@color/primaryText"
                 android:layout_marginLeft="@dimen/ld_side_margin"
                 android:layout_marginRight="@dimen/ld_side_margin"
-                />
+                android:text="한전 신청 현황 안내"
+                android:textAlignment="center"
+                android:textColor="@color/primaryText"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0dp"
@@ -224,25 +226,26 @@
             android:layout_height="2dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@color/customDarkGray"
-            />
+            android:background="@color/customDarkGray" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="6dp"
-            >
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/trade_status_stage2_1"
                 android:layout_width="wrap_content"
-                android:text="신청접수"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/ld_side_margin"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="접수완료"
+                android:textColor="@color/tradeButton2"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -251,12 +254,12 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="▶"
-                android:textSize="16sp"
-                android:textColor="@color/secondaryText"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="▶"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0dp"
@@ -266,11 +269,13 @@
             <TextView
                 android:id="@+id/trade_status_stage2_2"
                 android:layout_width="wrap_content"
-                android:text="거래검토중"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="거래검토"
+                android:textColor="@color/tradeButton2"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="0dp"
@@ -279,12 +284,12 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="▶"
-                android:textSize="16sp"
-                android:textColor="@color/secondaryText"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginRight="10dp"
+                android:text="▶"
+                android:textColor="@color/secondaryText"
+                android:textSize="16sp" />
 
             <Space
                 android:layout_width="0dp"
@@ -294,11 +299,13 @@
             <TextView
                 android:id="@+id/trade_status_stage2_3"
                 android:layout_width="wrap_content"
-                android:text="승인완료"
-                android:textSize="14sp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="@dimen/ld_side_margin" />
+                android:layout_marginRight="@dimen/ld_side_margin"
+                android:text="승인완료"
+                android:textColor="@color/tradeButton2"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>

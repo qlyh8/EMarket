@@ -2,6 +2,7 @@ package com.tistory.qlyh8.emarket.initialize;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -91,7 +94,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                     }
 
                     userPowerNumRegister();
-                    goNextActivity();
+
                 }
             }
         });
@@ -111,6 +114,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                 userData = dataSnapshot.getValue(User.class);
                 insertData1(address, 0, latitude, longitude, "", 0, 0, 0, "홍길동");
                 insertData2(25, 1, "1-10");
+                goNextActivity();
             }
 
             @Override
@@ -134,14 +138,15 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
     }
 
     public void insertData2(int dueDate, int meterReadDate, String possibleTradeDate) {
-        User setUserData = new User(dueDate, meterReadDate, possibleTradeDate);
+        //User setUserData = new User(dueDate, meterReadDate, possibleTradeDate);
         GetDB.mDatabaseReference.child("user")
-                .child(GetAuth.getUserId())
-                .setValue(setUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
+                .child(GetAuth.getUserId()).child("dueDate").setValue(dueDate);
+        GetDB.mDatabaseReference.child("user")
+                .child(GetAuth.getUserId()).child("meterReadDate").setValue(meterReadDate);
+        GetDB.mDatabaseReference.child("user")
+                .child(GetAuth.getUserId()).child("possibleTradeDate").setValue(possibleTradeDate);
                 //Toast.makeText(getApplicationContext(),"등록이 완료되었습니다.",Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
     }
 }

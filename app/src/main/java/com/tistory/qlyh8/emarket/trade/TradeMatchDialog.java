@@ -74,18 +74,18 @@ public class TradeMatchDialog extends Dialog {
 
                 if(GetType.userType.equals("prosumer")){
                     enrollId += GetAuth.getUserId() + "@@" + GetMatchUser.matchingUserUid + "@@";
-                    GetDB.mEnrollRef.child(enrollId).child("prosumer").setValue(GetAuth.getUserId());
-                    GetDB.mEnrollRef.child(enrollId).child("consumer").setValue(GetMatchUser.matchingUserUid);
-                    GetDB.mEnrollRef.child(enrollId).child("date").setValue(enrollDate);
+                    //GetDB.mEnrollRef.child(enrollId).child("prosumer").setValue(GetAuth.getUserId());
+                    //GetDB.mEnrollRef.child(enrollId).child("consumer").setValue(GetMatchUser.matchingUserUid);
+                    //GetDB.mEnrollRef.child(enrollId).child("date").setValue(enrollDate);
                     GetDB.mEnrollRef.child(enrollId).child("prosumerOk").setValue("Y");
                     GetDB.mEnrollRef.child(enrollId).child("consumerOk").setValue("N");
                     GetDB.mEnrollRef.child(enrollId).child("state").setValue(1);
                 }
                 else{
                     enrollId += GetMatchUser.matchingUserUid + "@@" + GetAuth.getUserId() + "@@";
-                    GetDB.mEnrollRef.child(enrollId).child("consumer").setValue(GetAuth.getUserId());
-                    GetDB.mEnrollRef.child(enrollId).child("prosumer").setValue(GetMatchUser.matchingUserUid);
-                    GetDB.mEnrollRef.child(enrollId).child("date").setValue(enrollDate);
+                    //GetDB.mEnrollRef.child(enrollId).child("consumer").setValue(GetAuth.getUserId());
+                    //GetDB.mEnrollRef.child(enrollId).child("prosumer").setValue(GetMatchUser.matchingUserUid);
+                    //GetDB.mEnrollRef.child(enrollId).child("date").setValue(enrollDate);
                     GetDB.mEnrollRef.child(enrollId).child("prosumerOk").setValue("N");
                     GetDB.mEnrollRef.child(enrollId).child("consumerOk").setValue("Y");
                     GetDB.mEnrollRef.child(enrollId).child("state").setValue(1);

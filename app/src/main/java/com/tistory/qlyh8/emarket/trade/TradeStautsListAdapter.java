@@ -1,6 +1,8 @@
 package com.tistory.qlyh8.emarket.trade;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +24,9 @@ public class TradeStautsListAdapter extends RecyclerView.Adapter<TradeStautsList
 
     private Context context;
     private LayoutInflater mInflater;
-    private List<Integer> res;
+    private List<String[]> res;
 
-    public TradeStautsListAdapter(Context context, List<Integer> res){
+    public TradeStautsListAdapter(Context context, List<String[]> res){
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
         this.res = res;
@@ -40,24 +42,53 @@ public class TradeStautsListAdapter extends RecyclerView.Adapter<TradeStautsList
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         //각 아이템의 이벤트를 할당
+        getState(holder,res.get(position)[3]);
         holder.statusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(mInflater.getContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
             }
         });
+        holder.matchingName.setText(res.get(position)[0]);
+        holder.matchingPowerRecommend.setText(res.get(position)[1]);
+        holder.matchingSaveMoney.setText(res.get(position)[2]);
+    }
 
-        GetDB.mEnrollRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    private void getState(ViewHolder holder, String state){
+         switch (state){
+            case "1":
+                holder.statusBtn.setText("요청완료");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton1));
+                break;
+            case "2":
+                holder.statusBtn.setText("요청검토");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton1));
+                break;
+            case "3":
+                holder.statusBtn.setText("접수대기");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton1));
+                break;
+            case "4":
+                holder.statusBtn.setText("접수완료");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton2));
+                break;
+            case "5":
+                holder.statusBtn.setText("거래검토");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton2));
+                break;
+            case "6":
+                holder.statusBtn.setText("승인완료");
+                holder.statusBtn.setTextColor(Color.rgb(255,255,255));
+                holder.statusBtn.setBackgroundColor(ContextCompat.getColor(context,R.color.tradeButton2));
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
