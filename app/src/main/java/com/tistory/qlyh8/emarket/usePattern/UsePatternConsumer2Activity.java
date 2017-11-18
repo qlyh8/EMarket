@@ -151,7 +151,7 @@ public class UsePatternConsumer2Activity extends Fragment {
         AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
 
         titleMonth.setText(year + "." + month);
-        titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
+        titlePower.setText(GetPowerUsed.powerTrade + "KWh");
         baseMoney.setText(GetPowerUsed.baseMoney + "원");
         powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
         basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");

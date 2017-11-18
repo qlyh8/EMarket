@@ -164,7 +164,7 @@ public class UsePatternProsumer1Activity extends Fragment {
 
         HashMap<String, String> hashMap;
         hashMap = m10use.selectByUid(GetAuth.getUserId());
-        Log.d("qwe", String.valueOf(hashMap.get("UM_PROVIDE3")));
+        //Log.d("qwe", String.valueOf(hashMap.get("UM_PROVIDE3")));
 
         //맨 아래 데이터(한전수급량)
         ArrayList<Entry> yVals1 = new ArrayList<>();
