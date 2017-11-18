@@ -172,7 +172,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
                     //myImg.setImageResource(R.drawable.trade_prosumer);
                     myNameText.setText(dataSnapshot.child("username").getValue() + " 프로슈머님");
                     myPowerText.setText(dataSnapshot.child("powerTrade").getValue() + "KWh 이하부터 거래가 가능합니다");
-                    typeText1.setText("컨슈머 현재 등록 현황");
+                    typeText1.setText("거래 가능한 컨슈머 현재 등록 현황");
                     typeText2.setText("해당 전력량(KWh) 이상부터 거래가 가능합니다");
                     typeStr = " 님";
                     powerStr = "KWh 이상";
@@ -181,7 +181,7 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
                     //myImg.setImageResource(R.drawable.trade_consumer);
                     myNameText.setText(dataSnapshot.child("username").getValue() + " 컨슈머님");
                     myPowerText.setText(dataSnapshot.child("powerTrade").getValue() + "KWh 이상부터 거래가 가능합니다");
-                    typeText1.setText("프로슈머 현재 등록 현황");
+                    typeText1.setText("거래 가능한 프로슈머 현재 등록 현황");
                     typeText2.setText("해당 전력량(KWh) 이하까지 거래가 가능합니다");
                     typeStr = " 님";
                     powerStr = "KWh 이하";

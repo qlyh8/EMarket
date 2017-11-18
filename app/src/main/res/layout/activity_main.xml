@@ -221,7 +221,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="최적의 거래자와 거래"
+                        android:text="최적 거래자 매칭"
                         android:textAlignment="center"
                         android:layout_marginTop="2dp"
                         android:textSize="12dp"
@@ -256,7 +256,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="(매칭현황 설명)"
+                        android:text="거래 / 한전 신청 현황"
                         android:textAlignment="center"
                         android:layout_marginTop="2dp"
                         android:textSize="12dp"
