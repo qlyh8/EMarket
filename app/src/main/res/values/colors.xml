@@ -57,5 +57,13 @@
     <color name="mint">#47CBAB</color>
     <color name="mintDark">#34B898</color>
     <color name="mintDeepDark">#278A72</color>
-
+    <color name="grass">#A1D16A</color>
+    <color name="grassDark">#8CBC4A</color>
+    <color name="grassDeepDark">#698D38</color>
+    <color name="aqua">#4DBDE1</color>
+    <color name="aquaDark">#3AABD6</color>
+    <color name="aquaDeepDark">#2C80A0</color>
+    <color name="pinkRose">#E784BB</color>
+    <color name="pinkRoseDark">#D070A8</color>
+    <color name="pinkRoseDeepDark">#9C547E</color>
 </resources>

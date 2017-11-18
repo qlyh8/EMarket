@@ -11,13 +11,39 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:gravity="center"
+        android:weightSum="4"
         android:background="@color/colorPrimaryDark">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_emarket_24"
-            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center|right"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_emarket_24"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            >
+            <ImageView
+                android:id="@+id/main_profile_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_main_5"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+
         <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,8 +57,215 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/customButton"
+        android:weightSum="5"
+        android:background="@color/customGray"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="내가 직접 거래하는"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="40dp"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="전기시장"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sun_64"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENERGYTHON"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:textColor="@color/secondaryText"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <LinearLayout
+                    android:id="@+id/main_use_pattern_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/main1_64"
+                        />
+                    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="자가진단"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/primaryText"
+                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="전력사용량/추천거래량 진단"
+                        android:textAlignment="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/secondaryText"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_report_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/main4_64"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="리포트"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/primaryText"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="청구서 / 거래이력 "
+                        android:textAlignment="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/secondaryText"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/main_trade_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/main2_64"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="거래하기"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/primaryText"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="최적의 거래자와 거래"
+                        android:textAlignment="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/secondaryText"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/main_status_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#fff"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/main3_64"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="매칭현황"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/primaryText"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="(매칭현황 설명)"
+                        android:textAlignment="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="12dp"
+                        android:textColor="@color/secondaryText"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
         <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -50,7 +283,7 @@
         </LinearLayout>-->
     </LinearLayout>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#ffffff"
@@ -121,5 +354,5 @@
             android:textColor="#FFFFFF"
             android:drawableTop="@drawable/ic_main_5"
             />
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

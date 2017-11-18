@@ -3,16 +3,11 @@ package com.tistory.qlyh8.emarket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-import com.tistory.qlyh8.emarket.firebase.GetAuth;
-import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
 import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 import com.tistory.qlyh8.emarket.report.ReportViewActivity;
@@ -20,16 +15,14 @@ import com.tistory.qlyh8.emarket.trade.TradeMainActivity;
 import com.tistory.qlyh8.emarket.trade.TradeStatusActivity;
 import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
 
-import java.util.Random;
-
 //홈 (자가진단/거래하기/매칭현황/리포트/내정보 버튼)
 public class MainActivity extends AppCompatActivity {
 
-    private Button goUsePatternBtn;
-    private Button goTradeListBtn;
-    private Button goStatusBtn;
-    private Button goReportBtn;
-    private Button goProfileBtn;
+    private View goUsePatternBtn;
+    private View goTradeListBtn;
+    private View goStatusBtn;
+    private View goReportBtn;
+    private ImageView goProfileBtn;
     //private Button getDataSampleBtn;
 
     @Override
@@ -219,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
         GetUserDB.getThisUserDB();
 
         //자가진단
-        goUsePatternBtn = (Button)findViewById(R.id.main_use_pattern_btn);
+        goUsePatternBtn = findViewById(R.id.main_use_pattern_btn);
         goUsePatternBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -229,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //거래하기
-        goTradeListBtn = (Button)findViewById(R.id.main_trade_btn);
+        goTradeListBtn = findViewById(R.id.main_trade_btn);
         goTradeListBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //매칭현황
-        goStatusBtn = (Button)findViewById(R.id.main_status_btn);
+        goStatusBtn = findViewById(R.id.main_status_btn);
         goStatusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //리포트
-        goReportBtn = (Button)findViewById(R.id.main_report_btn);
+        goReportBtn = findViewById(R.id.main_report_btn);
         goReportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -256,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //내정보
-        goProfileBtn = (Button)findViewById(R.id.main_profile_btn);
+        goProfileBtn = (ImageView) findViewById(R.id.main_profile_btn);
         goProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
