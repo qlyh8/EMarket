@@ -116,9 +116,9 @@ public class ReportProsumer1Activity extends Fragment {
         rightAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                if(value<=200){
+                if(value==100){
                     return "1단계";
-                }else if(value >200 && value<=400){
+                }else if(value==200){
                     return "2단계";
                 }else{
                     return "3단계";

@@ -3,6 +3,7 @@ package com.tistory.qlyh8.emarket.usePattern;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,9 +116,10 @@ public class UsePatternProsumer2Activity extends Fragment {
         rightAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                if(value<=200){
+                //Log.d("qwe", String.valueOf(value));
+                if(value==100){
                     return "1단계";
-                }else if(value>200 && value<=400){
+                }else if(value==200){
                     return "2단계";
                 }else{
                     return "3단계";
