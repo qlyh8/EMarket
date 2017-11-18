@@ -32,15 +32,15 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo_24"
+                android:src="@drawable/logo_emarket_24"
                 />
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" MARKET"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF"/>-->
         </LinearLayout>
     </LinearLayout>
 
