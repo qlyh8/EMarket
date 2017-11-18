@@ -29,6 +29,8 @@
 
     <color name="material_yellow_500">#FFEB3B</color>
 
+    <color name="material_blue_500">#2196F3</color>
+
     <color name="customButton">#2E3339</color>
     <color name="customGray">#EAEAEA</color>
     <color name="customDarkGray">#B0B0B0</color>

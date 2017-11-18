@@ -2,9 +2,11 @@ package com.tistory.qlyh8.emarket;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.info.InfoActivity;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
@@ -24,7 +26,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setRevealFlagX(Flags.REVEAL_LEFT);
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM);
 
-        configSplash.setLogoSplash(R.drawable.logo_emarket);
+        configSplash.setLogoSplash(R.drawable.logo_emarket_256);
         configSplash.setAnimLogoSplashDuration(duration);
 
         configSplash.setTitleSplash("내가 직접 거래하는 전기시장");
@@ -40,7 +42,10 @@ public class SplashActivity extends AwesomeSplash {
             @Override
             public void run() {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+                //Log.d("qwe", "@"+user.getUid() + "!");
+                //GetDB.mUserRef.child(user.getUid()).child("username").setValue("신윤희");
+                //GetDB.mUserRef.child(user.getUid()).child("username").setValue("김은성");
+                //GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("username").setValue("김은성");
                 if (user != null) {
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     //startActivity(new Intent(getApplicationContext(), InfoActivity.class));

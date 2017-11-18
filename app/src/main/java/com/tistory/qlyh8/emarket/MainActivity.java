@@ -3,6 +3,7 @@ package com.tistory.qlyh8.emarket;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,6 +16,8 @@ import com.tistory.qlyh8.emarket.report.ReportViewActivity;
 import com.tistory.qlyh8.emarket.trade.TradeMainActivity;
 import com.tistory.qlyh8.emarket.trade.TradeStatusActivity;
 import com.tistory.qlyh8.emarket.usePattern.UsePatternViewActivity;
+
+import java.util.Random;
 
 //홈 (자가진단/거래하기/매칭현황/리포트/내정보 버튼)
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +35,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
+        /*Random r = new Random();
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("username").setValue("김은성");
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("address").setValue("노원구");            //
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("addressNumber").setValue(1);            //
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("powerTrade").setValue(r.nextInt(1000));              //
 
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("powerUse").setValue(r.nextInt(1000));
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("phone").setValue("010-1111-1111");
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("type").setValue("prosumer");
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("powerNumber").setValue("");
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("meterReadDate").setValue(1);
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("dueDate").setValue(25);
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("possibleTradeDate").setValue("1-10");
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("latitude").setValue(r.nextDouble());
+        GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("longitude").setValue(r.nextDouble());*/
+
+        /*
+        *
+          insertData1("address", 0, r.nextDouble(), r.nextDouble(), powerNum, r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), "noname");
+          insertData2(25, 1, "1-10");
+        * */
         /*String name="1", email="2", uid="3", phone="4";
         boolean emailVerified=false;
 
