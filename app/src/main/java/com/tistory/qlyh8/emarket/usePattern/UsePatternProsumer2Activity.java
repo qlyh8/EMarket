@@ -147,7 +147,7 @@ public class UsePatternProsumer2Activity extends Fragment {
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
-        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));
+        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));     //(프로슈머사용량(kWh))  --> 발전량 - 수전량 + 잉여량
         yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerTrade));
         yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));
 

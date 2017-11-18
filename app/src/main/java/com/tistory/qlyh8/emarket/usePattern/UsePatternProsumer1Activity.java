@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +24,15 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.tistory.qlyh8.emarket.R;
+import com.tistory.qlyh8.emarket.dataManager.m10PowerUsedExcelFile;
+import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetPowerUsed;
 import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 
 //프로슈머 월 사용량
@@ -137,7 +141,7 @@ public class UsePatternProsumer1Activity extends Fragment {
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.setTextColor(ColorTemplate.getHoloBlue());
-        leftAxis.setAxisMaximum(200f);
+        leftAxis.setAxisMaximum(30f);
         leftAxis.setAxisMinimum(0f);
         leftAxis.setDrawGridLines(true);
         leftAxis.setTextColor(Color.BLACK);
@@ -156,28 +160,52 @@ public class UsePatternProsumer1Activity extends Fragment {
 
     private void setData(int count) {
 
-        //맨 아래 데이터
-        ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+        m10PowerUsedExcelFile m10use = new m10PowerUsedExcelFile(getContext());
+
+        HashMap<String, String> hashMap;
+        hashMap = m10use.selectByUid(GetAuth.getUserId());
+        Log.d("qwe", String.valueOf(hashMap.get("UM_PROVIDE3")));
+
+        //맨 아래 데이터(한전수급량)
+        ArrayList<Entry> yVals1 = new ArrayList<>();
+
+        float val = 0;
         //데이터 등록
-        for (int i = 0; i < count; i++) {
-            float val = (new Random().nextInt()%10)+20;
+        for (int i = 1 ; i <= count ; i++) {
+            //float val = (new Random().nextInt()%10)+20;
+            if(hashMap.get("UM_PROVIDE"+i) != null){
+                val = Float.parseFloat(hashMap.get("UM_PROVIDE"+i).trim());
+            }
+            else {
+                val = 0;
+            }
             yVals1.add(new Entry(i, val));
         }
 
-        //두번째 데이터
+        //두번째 데이터(사용량)
         ArrayList<Entry> yVals2 = new ArrayList<Entry>();
         //데이터 등록
-        for (int i = 0; i < count; i++) {
-            float val = (new Random().nextInt()%10)+50;
+        for (int i = 1 ; i <= count ; i++) {
+            if(hashMap.get("UM_USE_P"+i) != null){
+                val = Float.parseFloat(hashMap.get("UM_USE_P"+i).trim());
+            }
+            else {
+                val = 0;
+            }
             yVals2.add(new Entry(i, val));
 
         }
 
-        //세번째 데이터
+        //세번째 데이터(발전량)
         ArrayList<Entry> yVals3 = new ArrayList<Entry>();
         //데이터 등록
-        for (int i = 0; i < count; i++) {
-            float val = (new Random().nextInt()%10)+100;
+        for (int i = 1 ; i <= count ; i++) {
+            if(hashMap.get("UM_PRODUCE"+i) != null){
+                val = Float.parseFloat(hashMap.get("UM_PRODUCE"+i).trim());
+            }
+           else {
+                val = 0;
+            }
             yVals3.add(new Entry(i, val));
         }
 
