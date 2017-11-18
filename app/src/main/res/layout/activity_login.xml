@@ -37,7 +37,7 @@
         android:textStyle="bold"
         android:textColor="#ffffff"
         android:background="@color/colorPrimaryDark"
-        android:text="인증번호 보내기"
+        android:text="인증번호 받기"
         />
 
     <LinearLayout

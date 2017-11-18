@@ -65,9 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         if(mAuth.getCurrentUser() != null) {
             //다른 액티비티로 넘어가기
             //Toast.makeText(this, mAuth.getCurrentUser().getPhoneNumber(), Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "로그인되었습니다.", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            //Toast.makeText(this, "로그인되었습니다.", Toast.LENGTH_SHORT).show();
+            //startActivity(new Intent(this, MainActivity.class));
+            //startActivity(new Intent(this, InitialPowerNumberActivity.class));
+            //finish();
         }
 
         loginBtn = (Button)findViewById(R.id.login_send_auth_btn);

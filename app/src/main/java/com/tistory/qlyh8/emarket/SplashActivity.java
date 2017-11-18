@@ -47,8 +47,8 @@ public class SplashActivity extends AwesomeSplash {
                 //GetDB.mUserRef.child(user.getUid()).child("username").setValue("김은성");
                 //GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("username").setValue("김은성");
                 if (user != null) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    //startActivity(new Intent(getApplicationContext(), InfoActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), InfoActivity.class));
                     finish();
                 }
                 else{

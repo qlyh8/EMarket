@@ -62,10 +62,10 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == SEARCHADDRESS){
             if(resultCode == RESULT_OK){
-                Place place = PlaceAutocomplete.getPlace(InitialPowerNumberActivity.this, data);
-                latitude = place.getLatLng().latitude;
-                longitude = place.getLatLng().longitude;
-                address = place.getAddress().toString();
+               // Place place = PlaceAutocomplete.getPlace(InitialPowerNumberActivity.this, data);
+               // latitude = place.getLatLng().latitude;
+               // longitude = place.getLatLng().longitude;
+               // address = place.getAddress().toString();
             }
         }
     }
@@ -88,8 +88,8 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
                             + editNum4.getText().toString();
 
                     try {
-                        Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY).build(InitialPowerNumberActivity.this);
-                        startActivityForResult(intent, SEARCHADDRESS);
+                        //Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY).build(InitialPowerNumberActivity.this);
+                        //startActivityForResult(intent, SEARCHADDRESS);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -114,7 +114,7 @@ public class InitialPowerNumberActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 userData = dataSnapshot.getValue(User.class);
                 Random r = new Random();
-                insertData1("address", 0, r.nextDouble(), r.nextDouble(), powerNum, r.nextInt(1000), r.nextInt(1000), r.nextInt(1000), "noname");
+                insertData1("서울특별시 노원구 상계동 701-1", 1, 37.654265, 127.056583, powerNum, 189, 183, 312, "에디슨");
                 insertData2(25, 1, "1-10");
                 goNextActivity();
             }

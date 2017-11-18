@@ -32,36 +32,31 @@
             android:layout_height="wrap_content"
             android:text="반가워요!"
             android:textAlignment="center"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="#FFFFFF"
             />
+
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="에너지 프로슈머와 소비자간의"
+            android:layout_marginTop="20dp"
+            android:text="전력 거래 장터"
             android:textAlignment="center"
-            android:textSize="15sp"
             android:textColor="#FFFFFF"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="직접거래 어플리케이션"
-            android:textAlignment="center"
-            android:textSize="15sp"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="20dp"
-            />
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="E-MARKET"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 />
@@ -69,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 입니다"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 />
         </LinearLayout>
@@ -84,18 +79,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="에너지 프로슈머와 컨슈머에 대해"
+            android:text="쉽고 빠른 전력거래를"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:layout_marginTop="20dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="알고계신가요?"
+            android:text="시작해볼까요?"
             android:textAlignment="center"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textColor="#FFFFFF"
             />
     </LinearLayout>

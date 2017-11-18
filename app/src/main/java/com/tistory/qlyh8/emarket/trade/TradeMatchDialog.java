@@ -30,7 +30,7 @@ public class TradeMatchDialog extends Dialog {
         this.context = context;
     }
 
-    private TextView usernameText, powerTradeText, powerRecommendText, saveMoneyText;
+    private TextView usernameText, powerTradeText, powerRecommendText, powerRealText, saveMoneyText;
     private Button submitBtn, cancelBtn;
 
     @Override
@@ -43,6 +43,7 @@ public class TradeMatchDialog extends Dialog {
         usernameText = findViewById(R.id.trade_match_username);
         powerTradeText = findViewById(R.id.trade_match_powerTrade);
         powerRecommendText = findViewById(R.id.trade_match_powerRecommend);
+        powerRealText = findViewById(R.id.trade_match_powerReal);
         saveMoneyText = findViewById(R.id.trade_match_saveMoney);
         submitBtn = findViewById(R.id.trade_match_submit_btn);
         cancelBtn = findViewById(R.id.trade_match_cancel_btn);
@@ -52,12 +53,14 @@ public class TradeMatchDialog extends Dialog {
             usernameText.setText(GetMatchUser.matchingUserName + " 컨슈머");
             powerTradeText.setText(GetMatchUser.matchingUserPowerTrade + "KWh 이상 거래량");
             powerRecommendText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 이하 전력량");
+            powerRealText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 전력량");
             saveMoneyText.setText((String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0]) + "원");
         }
         else{
             usernameText.setText(GetMatchUser.matchingUserName + " 프로슈머");
             powerTradeText.setText(GetMatchUser.matchingUserPowerTrade + "KWh 이하 거래량");
             powerRecommendText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 이상 전력량");
+            powerRealText.setText(GetUserDB.thisUserDB.getPowerTrade() + "KWh 전력량");
             saveMoneyText.setText((String.valueOf(GetMatchUser.userSaveMoney).split("\\.")[0]) + "원");
         }
 

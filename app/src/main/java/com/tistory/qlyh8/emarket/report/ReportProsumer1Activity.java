@@ -93,10 +93,10 @@ public class ReportProsumer1Activity extends Fragment {
         xAxis.setValueFormatter(new IAxisValueFormatter() {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
-                if(value == 1){
+                if(value == 1){   //value == 1
+                    return "한전수전량";
+                }else if(value == 2){   //value == 2
                     return "잉여전력량";
-                }else if(value == 2){
-                    return "거래가능량";
                 } else {
                     return "사용량";
                 }
@@ -118,7 +118,7 @@ public class ReportProsumer1Activity extends Fragment {
             public String getFormattedValue(float value, AxisBase axis) {
                 if(value<=200){
                     return "1단계";
-                }else if(value<=400){
+                }else if(value >200 && value<=400){
                     return "2단계";
                 }else{
                     return "3단계";
@@ -148,9 +148,9 @@ public class ReportProsumer1Activity extends Fragment {
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
-        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));
-        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerTrade));
-        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));
+        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));     //사용량
+        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerProvide));   //한전수전량
+        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));   //잉여전력량
 
 
         BarDataSet set1;
@@ -188,7 +188,7 @@ public class ReportProsumer1Activity extends Fragment {
         AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
 
         titleMonth.setText(year + "." + month);
-        titleDate.setText("2017.10.09");
+        titleDate.setText("2017.11.09");
         baseMoney.setText(GetPowerUsed.baseMoney + "원");
         powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
         basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");

@@ -21,7 +21,7 @@ public class InfoAdapter extends PagerAdapter {
     //private List<Integer> res;
 
     Button infoBtn;
-    ImageView infoItem2, infoItem3_1, infoItem3_2;
+    ImageView infoItem2, infoItem3_1, infoItem3_2, infoItem4_1, infoItem4_2;
     LovelyInfoDialog infoDialog;
 
     /*
@@ -118,6 +118,32 @@ public class InfoAdapter extends PagerAdapter {
         }
 
         if(position == 3) {
+            infoItem4_1 = view.findViewById(R.id.info_item4_btn1);
+            infoItem4_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                            .setIcon(R.drawable.info_dialog)
+                            .setTitle("한국전력공사 승인")
+                            .setMessage("한국전력공사 승인이 된 후\n거래가 가능합니다")
+                            .setConfirmButtonText("확인")
+                            .show();
+                }
+            });
+
+            infoItem4_2 = view.findViewById(R.id.info_item4_btn2);
+            infoItem4_2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    infoDialog.setTopColorRes(R.color.colorPrimaryDark)
+                            .setIcon(R.drawable.info_dialog)
+                            .setTitle("전기요금 정산")
+                            .setMessage("전월 사용량(KWh)에 대한 전기요금으로 정산됩니다.")
+                            .setConfirmButtonText("확인")
+                            .show();
+                }
+            });
+
             infoBtn = view.findViewById(R.id.info_btn);
             infoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -93,9 +93,9 @@ public class UsePatternProsumer2Activity extends Fragment {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
                 if(value == 1){
-                    return "잉여전력량";
+                    return "한전수급량";
                 }else if(value == 2){
-                    return "거래가능량";
+                    return "잉여전력량";
                 } else {
                     return "사용량";
                 }
@@ -117,7 +117,7 @@ public class UsePatternProsumer2Activity extends Fragment {
             public String getFormattedValue(float value, AxisBase axis) {
                 if(value<=200){
                     return "1단계";
-                }else if(value<=400){
+                }else if(value>200 && value<=400){
                     return "2단계";
                 }else{
                     return "3단계";
@@ -148,8 +148,8 @@ public class UsePatternProsumer2Activity extends Fragment {
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
         yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));     //(프로슈머사용량(kWh))  --> 발전량 - 수전량 + 잉여량
-        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerTrade));
-        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));
+        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerProvide));   //한전수급량
+        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));   //잉여전력량
 
 
         BarDataSet set1;
