@@ -23,6 +23,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.tistory.qlyh8.emarket.R;
+import com.tistory.qlyh8.emarket.firebase.GetPowerUsed;
 import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 import com.yarolegovich.lovelydialog.LovelyInfoDialog;
 
@@ -239,16 +240,16 @@ public class UsePatternProsumer1Activity extends Fragment {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
 
-        //GetPowerUsed.calculatePowerUsed();
+        GetPowerUsed.calculatePowerUsed();
 
         titleMonth.setText(year + "." + month);
-        /*titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
+        titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
         baseMoney.setText(GetPowerUsed.baseMoney + "원");
         powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
         basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");
         etcMoney1.setText((Double.toString(GetPowerUsed.etc1Money).split("\\.")[0])  + "원");
         etcMoney2.setText((Double.toString(GetPowerUsed.etc2Money).split("\\.")[0]) + "원");
-        totalMoney.setText((Double.toString(GetPowerUsed.totalMoney).split("\\.")[0]));*/
+        totalMoney.setText((Double.toString(GetPowerUsed.totalMoney).split("\\.")[0]));
     }
 
 }

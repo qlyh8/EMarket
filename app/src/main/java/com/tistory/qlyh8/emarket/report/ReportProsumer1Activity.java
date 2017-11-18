@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetPowerUsed;
+import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,7 +40,7 @@ public class ReportProsumer1Activity extends Fragment {
     Double AfterTradeMoney;   //거래후 총금액
 
     //TextView graphText1, graphText2;
-    TextView titleMonth ,titlePower;
+    TextView titleMonth ,titleDate;
     TextView baseMoney, powerMoney, basePowerMoney, etcMoney1, etcMoney2, totalMoney;
     TextView saveMoney;
 
@@ -52,7 +53,7 @@ public class ReportProsumer1Activity extends Fragment {
         //graphText1 = view.findViewById(R.id.report_item1_graph_text1);
         //graphText2 = view.findViewById(R.id.report_item1_graph_text2);
         titleMonth = view.findViewById(R.id.report_item1_title_month);
-        titlePower = view.findViewById(R.id.report_item1_title_trade_date);
+        titleDate = view.findViewById(R.id.report_item1_title_trade_date);
         baseMoney = view.findViewById(R.id.report_item1_base_money);
         powerMoney = view.findViewById(R.id.report_item1_power_money);
         basePowerMoney = view.findViewById(R.id.report_item1_base_power_money);
@@ -93,11 +94,11 @@ public class ReportProsumer1Activity extends Fragment {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
                 if(value == 1){
-                    return "사용량";
-                }else if(value == 2){
                     return "잉여전력량";
-                } else {
+                }else if(value == 2){
                     return "거래가능량";
+                } else {
+                    return "사용량";
                 }
             }
         });
@@ -137,6 +138,8 @@ public class ReportProsumer1Activity extends Fragment {
 //        l.setXEntrySpace(4f);
 //
         setData(2, 200);
+
+        barChart.animateXY(1500, 1500);
     }
 
     private void setData(int count, float range) {
@@ -145,9 +148,9 @@ public class ReportProsumer1Activity extends Fragment {
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
-        yVals1.add(new BarEntry(0, 100));
-        yVals1.add(new BarEntry(1, 250));
-        yVals1.add(new BarEntry(2, 700));
+        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));
+        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerTrade));
+        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));
 
 
         BarDataSet set1;
@@ -177,21 +180,21 @@ public class ReportProsumer1Activity extends Fragment {
 
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH)+1;
+        int month = calendar.get(Calendar.MONTH);
 
-        //GetPowerUsed.calculatePowerUsed();
-        //beforeTradeMoney = GetPowerUsed.totalMoney;
-        //GetPowerUsed.calculateTradePowerUsed();
-        //AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
+        GetPowerUsed.calculatePowerUsed();
+        beforeTradeMoney = GetPowerUsed.totalMoney;
+        GetPowerUsed.calculateTradePowerUsed();
+        AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
 
         titleMonth.setText(year + "." + month);
-        //titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
-        /*baseMoney.setText(GetPowerUsed.baseMoney + "원");
+        titleDate.setText("2017.10.09");
+        baseMoney.setText(GetPowerUsed.baseMoney + "원");
         powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
         basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");
         etcMoney1.setText((Double.toString(GetPowerUsed.etc1Money).split("\\.")[0])  + "원");
         etcMoney2.setText((Double.toString(GetPowerUsed.etc2Money).split("\\.")[0]) + "원");
         totalMoney.setText((Double.toString(GetPowerUsed.totalMoney).split("\\.")[0]));
-        saveMoney.setText((Double.toString(AfterTradeMoney).split("\\.")[0]) + "원");*/
+        saveMoney.setText((Double.toString(AfterTradeMoney).split("\\.")[0]) + "원");
     }
 }

@@ -56,14 +56,53 @@ public class GetMatchUser {
                 //Log.d("qwe", String.valueOf(tradeTotalSumMoney));
             }
             else if ((201 <= powerProvide) && (powerProvide <= 400)) {
-
                 //기본요금: 1600원, 전력량요금: 187.9원
                 baseMoney = 1600;
+                if(powerProvide > powerTrade){
+                    powerMoney = (powerProvide - powerTrade) * 93.3;
+                    temp1SumMoney = baseMoney + powerMoney;
+                    temp2SumMoney = baseMoney + powerProvide * 93.3;
+                    totalSumMoney = temp1SumMoney + temp2SumMoney * 0.037 + temp2SumMoney * 0.1;
+                }
+                else{
+                    powerMoney = 0;
+                    temp1SumMoney = baseMoney + powerMoney;
+                    temp2SumMoney = baseMoney + powerProvide * 93.3;
+                    totalSumMoney = temp1SumMoney + temp2SumMoney * 0.037 + temp2SumMoney * 0.1;
+                }
+                tradePowerMoney = powerProvide * 93.3;
+                tradeTemp1SumMoney = baseMoney + tradePowerMoney;
+                beforeTotalSumMoney = tradeTemp1SumMoney + tradeTemp1SumMoney * 0.037 + tradeTemp1SumMoney * 0.1;
+
+                tradeEarnMoney = powerTrade * 187.9;
+                tradeTotalSumMoney = beforeTotalSumMoney - tradeEarnMoney;
+
+                GetMatchUser.userTotalMoney = totalSumMoney;
                 GetMatchUser.userSaveMoney = Double.valueOf(0);
             }
             else{
                 //기본요금: 7,300원, 전력량요금: 280.6원
                 baseMoney = 7300;
+                if(powerProvide > powerTrade){
+                    powerMoney = (powerProvide - powerTrade) * 93.3;
+                    temp1SumMoney = baseMoney + powerMoney;
+                    temp2SumMoney = baseMoney + powerProvide * 93.3;
+                    totalSumMoney = temp1SumMoney + temp2SumMoney * 0.037 + temp2SumMoney * 0.1;
+                }
+                else{
+                    powerMoney = 0;
+                    temp1SumMoney = baseMoney + powerMoney;
+                    temp2SumMoney = baseMoney + powerProvide * 93.3;
+                    totalSumMoney = temp1SumMoney + temp2SumMoney * 0.037 + temp2SumMoney * 0.1;
+                }
+                tradePowerMoney = powerProvide * 93.3;
+                tradeTemp1SumMoney = baseMoney + tradePowerMoney;
+                beforeTotalSumMoney = tradeTemp1SumMoney + tradeTemp1SumMoney * 0.037 + tradeTemp1SumMoney * 0.1;
+
+                tradeEarnMoney = powerTrade * 187.9;
+                tradeTotalSumMoney = beforeTotalSumMoney - tradeEarnMoney;
+
+                GetMatchUser.userTotalMoney = totalSumMoney;
                 GetMatchUser.userSaveMoney = Double.valueOf(0);
             }
         }

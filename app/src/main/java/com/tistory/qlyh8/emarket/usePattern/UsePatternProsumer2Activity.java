@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.tistory.qlyh8.emarket.R;
 import com.tistory.qlyh8.emarket.firebase.GetPowerUsed;
+import com.tistory.qlyh8.emarket.firebase.GetUserDB;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -85,8 +86,6 @@ public class UsePatternProsumer2Activity extends Fragment {
         barChart.setDrawGridBackground(false);
         // barChart.setDrawYLabels(false);
 
-
-
         XAxis xAxis = barChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
@@ -94,11 +93,11 @@ public class UsePatternProsumer2Activity extends Fragment {
             @Override
             public String getFormattedValue(float value, AxisBase axis) {
                 if(value == 1){
-                    return "사용량";
-                }else if(value == 2){
                     return "잉여전력량";
-                } else {
+                }else if(value == 2){
                     return "거래가능량";
+                } else {
+                    return "사용량";
                 }
             }
         });
@@ -138,6 +137,8 @@ public class UsePatternProsumer2Activity extends Fragment {
 //        l.setXEntrySpace(4f);
 //
         setData(2, 200);
+
+        barChart.animateXY(2500, 2500);
     }
 
     private void setData(int count, float range) {
@@ -146,9 +147,9 @@ public class UsePatternProsumer2Activity extends Fragment {
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
-        yVals1.add(new BarEntry(0, 100));
-        yVals1.add(new BarEntry(1, 250));
-        yVals1.add(new BarEntry(2, 700));
+        yVals1.add(new BarEntry(0, GetUserDB.thisUserDB.powerUse));
+        yVals1.add(new BarEntry(1, GetUserDB.thisUserDB.powerTrade));
+        yVals1.add(new BarEntry(2, GetUserDB.thisUserDB.powerTrade));
 
 
         BarDataSet set1;
@@ -180,19 +181,19 @@ public class UsePatternProsumer2Activity extends Fragment {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;
 
-        //GetPowerUsed.calculatePowerUsed();
-        //beforeTradeMoney = GetPowerUsed.totalMoney;
-        //GetPowerUsed.calculateTradePowerUsed();
-        //AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
+        GetPowerUsed.calculatePowerUsed();
+        beforeTradeMoney = GetPowerUsed.totalMoney;
+        GetPowerUsed.calculateTradePowerUsed();
+        AfterTradeMoney = beforeTradeMoney - GetPowerUsed.totalMoney;
 
         titleMonth.setText(year + "." + month);
         titlePower.setText(GetPowerUsed.totalPowerUsed + "KWh");
-        /*baseMoney.setText(GetPowerUsed.baseMoney + "원");
+        baseMoney.setText(GetPowerUsed.baseMoney + "원");
         powerMoney.setText((Double.toString(GetPowerUsed.powerMoney).split("\\.")[0]) + "원");
         basePowerMoney.setText((Double.toString(GetPowerUsed.basePowerMoney).split("\\.")[0]) + "원");
         etcMoney1.setText((Double.toString(GetPowerUsed.etc1Money).split("\\.")[0])  + "원");
         etcMoney2.setText((Double.toString(GetPowerUsed.etc2Money).split("\\.")[0]) + "원");
         totalMoney.setText((Double.toString(GetPowerUsed.totalMoney).split("\\.")[0]));
-        saveMoney.setText((Double.toString(AfterTradeMoney).split("\\.")[0]) + "원");*/
+        saveMoney.setText((Double.toString(AfterTradeMoney).split("\\.")[0]) + "원");
     }
 }

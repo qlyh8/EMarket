@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.tistory.qlyh8.emarket.firebase.GetAuth;
 import com.tistory.qlyh8.emarket.firebase.GetDB;
 import com.tistory.qlyh8.emarket.firebase.GetType;
@@ -34,7 +37,58 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        init();
+       /* Random r = new Random();
+        String text1, text2;
+        for(int i = 1 ; i < 24 ; i++){
+            //text2 = "testConsumer" + i + "_uid";
+            text1 = "testProsumer" + i + "_uid";
+
+            GetDB.mUserRef.child(text1).child("username").setValue("noname");        //
+            GetDB.mUserRef.child(text1).child("address").setValue("noaddress");            //
+            GetDB.mUserRef.child(text1).child("addressNumber").setValue(0);            //
+            GetDB.mUserRef.child(text1).child("powerTrade").setValue(r.nextInt(1000));              //
+            GetDB.mUserRef.child(text1).child("type").setValue("prosumer");
+            //GetDB.mUserRef.child(text2).child("type").setValue("prosumer");
+            GetDB.mUserRef.child(text1).child("powerUse").setValue(r.nextInt(1000));
+
+            GetDB.mUserRef.child(text1).child("phone").setValue("+821011111111");
+            GetDB.mUserRef.child(text1).child("powerNumber").setValue("22-22-2222222-2222");
+            GetDB.mUserRef.child(text1).child("meterReadDate").setValue(1);
+            GetDB.mUserRef.child(text1).child("dueDate").setValue(25);
+            GetDB.mUserRef.child(text1).child("possibleTradeDate").setValue("1-10");
+            GetDB.mUserRef.child(text1).child("latitude").setValue(r.nextInt(500) + r.nextDouble());
+            GetDB.mUserRef.child(text1).child("longitude").setValue(r.nextInt(500) + r.nextDouble());
+        }*/
+        /*GetDB.mUserRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    GetDB.mUserRef.child(snapshot.getKey()).child("powerProvide").setValue(0);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
+        /*String text2 = "CMyowLf7P1NsDO0VlcKIa279dZA3";
+        GetDB.mUserRef.child(text2).child("username").setValue("태양");        //
+        GetDB.mUserRef.child(text2).child("phone").setValue("+821040311993");
+        GetDB.mUserRef.child(text2).child("address").setValue("서울특별시 노원구 상계동 701-1");            //
+
+        GetDB.mUserRef.child(text2).child("addressNumber").setValue(1);            //
+        GetDB.mUserRef.child(text2).child("powerTrade").setValue(182);              //
+        //GetDB.mUserRef.child(GetAuth.getUserId()).child("type").setValue("consumer");
+        GetDB.mUserRef.child(text2).child("type").setValue("prosumer");
+        GetDB.mUserRef.child(text2).child("powerUse").setValue(312);
+
+        GetDB.mUserRef.child(text2).child("powerNumber").setValue("22-22-2222222-2222");
+        GetDB.mUserRef.child(text2).child("meterReadDate").setValue(1);
+        GetDB.mUserRef.child(text2).child("dueDate").setValue(25);
+        GetDB.mUserRef.child(text2).child("possibleTradeDate").setValue("1-10");
+        GetDB.mUserRef.child(text2).child("latitude").setValue(37.654265);
+        GetDB.mUserRef.child(text2).child("longitude").setValue(127.056583);*/
         /*Random r = new Random();
         GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("username").setValue("김은성");
         GetDB.mUserRef.child("3lmCfh9rmzXEStqPbZyVtzvKhIC2").child("address").setValue("노원구");            //
@@ -88,6 +142,23 @@ public class MainActivity extends AppCompatActivity {
         GetDB.mUserRef.child(uid1).child("latitude").setValue(0);
         GetDB.mUserRef.child(uid1).child("longitude").setValue(0);*/
 
+       /* Random r = new Random();
+        String uid1 = "testConsumer1_uid";
+        GetDB.mUserRef.child(uid1).child("username").setValue("만수르");        //
+        GetDB.mUserRef.child(uid1).child("address").setValue("노원구");            //
+        GetDB.mUserRef.child(uid1).child("addressNumber").setValue(1);            //
+        GetDB.mUserRef.child(uid1).child("powerTrade").setValue(182);              //
+
+        GetDB.mUserRef.child(uid1).child("powerUse").setValue(0);
+        GetDB.mUserRef.child(uid1).child("phone").setValue("11");
+        GetDB.mUserRef.child(uid1).child("type").setValue("consumer");
+        GetDB.mUserRef.child(uid1).child("powerNumber").setValue("22-22-2222222-2222");
+        GetDB.mUserRef.child(uid1).child("meterReadDate").setValue(1);
+        GetDB.mUserRef.child(uid1).child("dueDate").setValue(25);
+        GetDB.mUserRef.child(uid1).child("possibleTradeDate").setValue("1-10");
+        GetDB.mUserRef.child(uid1).child("latitude").setValue(37.654265);
+        GetDB.mUserRef.child(uid1).child("longitude").setValue(127.056583);*/
+
         //GetDB.mUserRef.child(GetAuth.getUserId()).child("matching").child("username").setValue("에디슨");
 
        /* GetDB.mEnrollRef.child("prosumer").child("testProsumer3_uid").child("testProsumer3_enroll_key1").child("name").setValue("testProsumer3");
@@ -137,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
         GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("enrollMonth").setValue(thisMonth);
         GetDB.mEnrollRef.child("prosumer").child("testProsumer1_uid").child("testProsumer1_enroll_key1").child("enrollDay").setValue(thisDay);*/
+        init();
     }
 
     private void init() {
