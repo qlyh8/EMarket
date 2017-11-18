@@ -104,8 +104,9 @@ public class TradeMainActivity extends AppCompatActivity implements OnMapReadyCa
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
 
-                    //different type user
-                    if(!GetType.userType.equals(snapshot.child("type").getValue())){
+                    //different type user & same address number
+                    if(!GetType.userType.equals(snapshot.child("type").getValue())
+                            && (GetUserDB.thisUserDB.addressNumber == snapshot.child("addressNumber").getValue(Integer.class))){
                         ++count;
                         nameData.add(snapshot.child("username").getValue().toString() + typeStr);
                         powerData.add(snapshot.child("powerTrade").getValue().toString() + powerStr);
