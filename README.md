@@ -5,6 +5,7 @@ E-MARKET
 현재 한국전력공사에서 시행중인 소규모 전력 거래 사업에 대한 문제점을 보완하고 재구성하였다.  
 
 ![시연 동영상](https://github.com/qlyh8/EMarket/blob/master/app/src/main/demo/final_demo_with_description.mp4)  
+![Alt text](https://github.com/qlyh8/EMarket/blob/master/app/src/main/demo/screenshot/1_splash.png)   
 
 >[에너지톤](http://env.seoul.go.kr/)은 서울시에서 주최한 경진대회이며 에너지절약과 생산으로 원전하나 줄이기 목표 달성에 기여할 수 있는 서비스나 제품을 만들어내는 해커톤 방식의 대회이다.
 ----------
