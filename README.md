@@ -4,7 +4,7 @@ E-MARKET
 2017 에너지 생활기술 경진대회 **에너지톤**을 위해 개발한 어플리케이션으로,  
 현재 한국전력공사에서 시행중인 소규모 전력 거래 사업에 대한 문제점을 보완하고 재구성하였다.  
 
-![시연 동영상](https://www.youtube.com/watch?v=5YdAM6rtaPU&feature=youtu.be)  
+[시연 동영상](https://www.youtube.com/watch?v=5YdAM6rtaPU&feature=youtu.be)  
 ![Alt text](https://github.com/qlyh8/EMarket/blob/master/app/src/main/demo/screenshot/1_splash.png)   
 
 >[에너지톤](http://env.seoul.go.kr/)은 서울시에서 주최한 경진대회이며 에너지절약과 생산으로 원전하나 줄이기 목표 달성에 기여할 수 있는 서비스나 제품을 만들어내는 해커톤 방식의 대회이다.
